@@ -1,0 +1,25 @@
+{
+  "name": "give-it-a-shot",
+  "version": "1.0.0",
+  "description": "We know all know the feeling: standing in a room full of people, unsure if you belong or what to say. In our case, everyone is ordering fancy cocktails and all you know how to say is \"Vodka Soda\". Give It A Shot changes all of that.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fostimus/give-it-a-shot.git"
+  },
+  "keywords": [
+    "Node",
+    "Express",
+    "Postgres",
+    "React"
+  ],
+  "author": "Derek Foster <derekfoster94@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fostimus/give-it-a-shot/issues"
+  },
+  "homepage": "https://github.com/fostimus/give-it-a-shot#readme"
+}

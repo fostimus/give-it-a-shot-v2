@@ -1,0 +1,63 @@
+@import "../../../assets/globals";
+
+.home {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 25px 60% repeat(4, 25px);
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.centered {
+  grid-column: 2 / 3;
+  margin: auto auto;
+  max-width: 350px;
+}
+
+.mainIcon {
+  grid-row: 2 / 3;
+}
+
+.home2 {
+  grid-row: 4 / 5;
+}
+
+.home3 {
+  grid-row: 6 / 6;
+}
+
+.loggedIn {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 65px;
+
+  h2 {
+    margin-bottom: 0;
+  }
+}
+
+.button {
+  margin: 0 auto;
+}
+
+.grid {
+  width: 600px;
+  margin: 0 auto;
+  display: grid;
+  grid: 1fr 1fr / 1fr 1fr;
+  gap: 30px 0;
+
+  img {
+    margin: 0 auto;
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: $mobile-breakpoint) {
+  .grid {
+    width: 300px;
+
+    img {
+      width: 100px;
+    }
+  }
+}

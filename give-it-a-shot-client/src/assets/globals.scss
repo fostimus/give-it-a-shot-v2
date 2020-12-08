@@ -1,0 +1,25 @@
+$black: #080708;
+$white: #fbfcff;
+$bg-color: #b7e4c7;
+$link-color: #40916c;
+$mobile-breakpoint: 769px;
+
+@font-face {
+  font-family: "Nunito";
+  src: url("./Nunito/Nunito-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "NunitoBold";
+  src: url("./Nunito/Nunito-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "NunitoItalic";
+  src: url("./Nunito/Nunito-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "NunitoBoldItalic";
+  src: url("./Nunito/Nunito-BoldItalic.ttf") format("truetype");
+}

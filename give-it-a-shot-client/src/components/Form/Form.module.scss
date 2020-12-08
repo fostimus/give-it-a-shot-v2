@@ -1,0 +1,20 @@
+.form-flex {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  gap: 15px;
+}
+
+.form-group {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+
+  * {
+    display: inline-block;
+  }
+}
+
+.centered {
+  margin: 0 auto;
+}

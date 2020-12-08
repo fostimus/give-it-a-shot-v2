@@ -1,0 +1,1 @@
+create table drinks (id SERIAL NOT NULL, name varchar(255), liquor varchar(255), category varchar(255), "cocktailDbId" varchar(255), "imageUrl" varchar(255), "createdAt" timestamptz, "updatedAt" timestamptz, PRIMARY KEY(id));

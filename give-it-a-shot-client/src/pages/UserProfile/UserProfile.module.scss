@@ -1,0 +1,16 @@
+@import "../../assets/globals";
+
+.margins {
+  margin-bottom: 25px;
+}
+
+.layout {
+  display: flex;
+  justify-content: space-around;
+}
+
+@media screen and (max-width: $mobile-breakpoint) {
+  .layout {
+    flex-flow: column wrap;
+  }
+}

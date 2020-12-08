@@ -1,0 +1,32 @@
+{
+  "name": "give-it-a-shot-api-sql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "sequelize db:seed --seed seeders/20201118201018-image-seeder.js && nodemon index.js",
+    "publishheroku": "cd ../ && git subtree push --prefix give-it-a-shot-api-sql give-it-a-shot-api-sql main || true"
+  },
+  "keywords": [],
+  "contributors": [
+    "Derek Foster <derekfoster94@gmail.com>",
+    "Kelsey Whallon <kelsey.whallon@gmail.com>"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "bcrypt": "^5.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.6",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "pg": "^8.5.1",
+    "sequelize": "^6.3.5",
+    "sequelize-cli": "^6.2.0"
+  }
+}

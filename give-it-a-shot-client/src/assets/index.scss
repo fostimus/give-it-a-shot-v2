@@ -1,0 +1,82 @@
+@import "globals";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $bg-color;
+}
+
+button {
+  font-family: "NunitoBold", sans-serif;
+}
+// $black
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+a {
+  text-decoration: none;
+  color: darken($link-color, 35%);
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: $link-color;
+  }
+}
+
+h1 {
+  font-size: 54px;
+}
+
+h2 {
+  font-size: 42px;
+}
+
+h3 {
+  font-size: 36px;
+}
+
+h4 {
+  font-size: 30px;
+}
+
+h5 {
+  font-size: 24px;
+}
+
+p {
+  font-size: 16px;
+}
+
+@media screen and (max-width: $mobile-breakpoint) {
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+
+  h4 {
+    font-size: 20px;
+  }
+
+  h5 {
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 12px;
+  }
+}

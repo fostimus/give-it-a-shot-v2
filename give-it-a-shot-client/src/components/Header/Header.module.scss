@@ -1,0 +1,104 @@
+@import "../../assets/globals";
+
+header,
+h1 {
+  color: $link-color;
+  font-family: "NunitoBoldItalic", sans-serif;
+}
+
+header {
+  background-color: rgba(239, 250, 241, 0.55);
+  // border: 1px solid white;
+
+  text-align: center;
+  padding: 20px 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 24px;
+
+  h1 {
+    margin: 0 auto;
+  }
+
+  button {
+    // &:disabled {
+    background: transparent;
+    border: none;
+    outline: none;
+    // }
+  }
+
+  a {
+    color: $link-color;
+
+    &:hover {
+      color: lighten($link-color, 25%);
+    }
+  }
+
+  ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style-type: none;
+      padding: 0px 10px;
+    }
+  }
+}
+
+.logo,
+.links {
+  display: inline-flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.links {
+  margin-left: auto;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+
+  h1 {
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width: $mobile-breakpoint) {
+  header {
+    padding: 10px 0 0;
+  }
+
+  .header a {
+    font-size: 16px;
+  }
+
+  .header {
+    font-size: 16px;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 100%;
+  }
+
+  .logo {
+    grid-row: 2 / 3;
+    flex-flow: column wrap;
+  }
+
+  .links {
+    grid-row: 3 / 3;
+    margin: auto;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.block {
+  display: block;
+}

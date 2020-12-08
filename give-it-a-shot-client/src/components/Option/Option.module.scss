@@ -1,0 +1,42 @@
+@import "../../assets/globals";
+
+.button {
+  background-color: transparent;
+  border: none;
+  outline-color: #1b4332;
+  margin: 0 auto;
+
+  &:hover,
+  &:focus {
+    outline: 2px solid #1b4332;
+  }
+}
+
+.link {
+  display: inline-block;
+  margin: 0 auto;
+
+  &:hover,
+  &:focus {
+    outline: 2px solid #1b4332;
+  }
+}
+
+.option {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  cursor: pointer;
+  font-size: 18px;
+  margin: 0 auto;
+
+  img {
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: $mobile-breakpoint) {
+  .option img {
+    width: 100px;
+  }
+}

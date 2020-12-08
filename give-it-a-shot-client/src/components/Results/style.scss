@@ -1,0 +1,13 @@
+.drink {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+
+  img {
+    max-width: 400px;
+  }
+}
+
+.submitButton {
+  margin-bottom: 70px;
+}

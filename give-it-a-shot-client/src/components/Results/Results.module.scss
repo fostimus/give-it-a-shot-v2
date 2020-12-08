@@ -1,0 +1,34 @@
+@import "../../assets/globals";
+
+.container {
+  margin: 0 auto;
+  width: 85%;
+}
+
+.options {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 20px;
+  gap: 15px 0;
+}
+
+.option {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.favoriteButton {
+  margin: 0 auto;
+}
+
+.submitButton {
+  margin-bottom: 80px;
+}
+
+@media screen and (max-width: $mobile-breakpoint) {
+  .options {
+    grid-template-columns: 100%;
+    gap: 20px;
+  }
+}
