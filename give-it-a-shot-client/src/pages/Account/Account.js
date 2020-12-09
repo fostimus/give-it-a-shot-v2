@@ -3,10 +3,10 @@ import { Redirect } from "react-router-dom";
 import UserApi from "../../backend/user";
 import { Form } from "../../components/Form";
 import { Button } from "../../components/Button";
-import styles from "./UserProfile.module.scss";
+import styles from "./Account.module.scss";
 import { vw, mobileBreakpoint, getViewport } from "../../utility";
 
-export const UserProfile = props => {
+export const Account = props => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");

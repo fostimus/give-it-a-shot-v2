@@ -31,7 +31,7 @@ export const Header = props => {
     <div className={`${toggleDisplay ? null : styles.block} ${styles.header}`}>
       <div className={`${toggleDisplay ? null : styles.hidden} ${styles.logo}`}>
         <Link to={"/"}>Home</Link>
-        <Link to={"/profile"}>My Profile</Link>
+        <Link to={"/account"}>Account</Link>
       </div>
       <button
         className={styles["header-button"]}

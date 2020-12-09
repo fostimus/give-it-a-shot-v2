@@ -5,7 +5,7 @@ import { Home } from "../pages/Home";
 import { Quiz } from "../pages/Quiz";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
-import { UserProfile } from "../pages/UserProfile";
+import { Account } from "../pages/Account";
 import { DrinkDetails } from "../pages/DrinkDetails";
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
@@ -50,8 +50,8 @@ const Routes = props => (
       }}
     />
     <PrivateRoute
-      path="/profile"
-      component={UserProfile}
+      path="/account"
+      component={Account}
       currentUser={props.currentUser}
     />
     <PrivateRoute
