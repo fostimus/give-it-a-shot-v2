@@ -3,7 +3,6 @@ import { Redirect } from "react-router-dom";
 import UserApi from "../../backend/user";
 import { Form } from "../../components/Form";
 import { Button } from "../../components/Button";
-import { Favorites } from "../../components/Favorites";
 import styles from "./UserProfile.module.scss";
 import { vw, mobileBreakpoint, getViewport } from "../../utility";
 
@@ -115,7 +114,6 @@ export const UserProfile = props => {
           content="Delete Account"
         />
       </div>
-      <Favorites currentUser={props.currentUser} />
     </div>
   );
 };

@@ -28,7 +28,7 @@
 .loggedIn {
   display: flex;
   flex-flow: column wrap;
-  gap: 65px;
+  gap: 35px;
 
   h2 {
     margin-bottom: 0;
@@ -37,27 +37,4 @@
 
 .button {
   margin: 0 auto;
-}
-
-.grid {
-  width: 600px;
-  margin: 0 auto;
-  display: grid;
-  grid: 1fr 1fr / 1fr 1fr;
-  gap: 30px 0;
-
-  img {
-    margin: 0 auto;
-    width: 200px;
-  }
-}
-
-@media screen and (max-width: $mobile-breakpoint) {
-  .grid {
-    width: 300px;
-
-    img {
-      width: 100px;
-    }
-  }
 }

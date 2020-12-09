@@ -1,14 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import loggedOutIcon from "./assets/alcohol_icon.png";
-import shaker from "./assets/cocktailshaker.png";
-import martini from "./assets/martini.png";
-import mimosa from "./assets/mimosa.png";
-import pineapple from "./assets/pineapple.png";
+import { Favorites } from "../../components/Favorites";
 import { ButtonLink } from "../../components/Button";
 import styles from "./assets/Home.module.scss";
+import UserApi from "../../backend/user";
 import { vw, mobileBreakpoint, getViewport } from "../../utility";
 
 export const Home = props => {
+  const [firstName, setFirstName] = useState("");
   const [desktop, setDesktop] = useState(vw > mobileBreakpoint ? true : false);
 
   const checkViewport = () => {
@@ -21,18 +20,23 @@ export const Home = props => {
     }
   };
 
+  const fetchUser = () => {
+    UserApi.show(props.currentUser).then(data => {
+      setFirstName(data.user.firstName);
+    });
+  };
+
+  useEffect(fetchUser, []);
+
   window.addEventListener("resize", checkViewport);
 
   return (
     <>
       {props.currentUser ? (
         <div className={styles.loggedIn}>
-          <h2>Welcome Home.. Grab a Drink 🍸</h2>
-          <div className={styles.grid}>
-            <img src={shaker} alt="" />
-            <img src={mimosa} alt="" />
-            <img src={pineapple} alt="" />
-            <img src={martini} alt="" />
+          <div>
+            <h2>Welcome Home, {firstName}</h2>
+            <h3>Grab a Drink 🍸</h3>
           </div>
 
           <ButtonLink
@@ -41,6 +45,8 @@ export const Home = props => {
             path="/quiz"
             text="Take the drink quiz"
           />
+
+          <Favorites currentUser={props.currentUser} />
         </div>
       ) : (
         <div className={styles.home}>
