@@ -21,8 +21,14 @@ export default class DrinksApi {
     }).then(res => res.json());
   }
 
-  static getDrinkDetails(idDrink) {
-    return fetch(`${REACT_APP_API_URL}/drinks/${idDrink}`, {
+  static getDrinkDetails(drinkId) {
+    return fetch(`${REACT_APP_API_URL}/drinks/${drinkId}`, {
+      method: "GET"
+    }).then(res => res.json());
+  }
+
+  static getRandomDrink() {
+    return fetch(`${REACT_APP_API_URL}/drinks/random`, {
       method: "GET"
     }).then(res => res.json());
   }

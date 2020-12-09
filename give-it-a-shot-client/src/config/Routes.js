@@ -59,7 +59,8 @@ const Routes = props => (
       component={Quiz}
       currentUser={props.currentUser}
     />
-    <PrivateRoute path="/drink/" component={DrinkDetails} />
+    <PrivateRoute path="/drink/random" component={DrinkDetails} random={true} />
+    <PrivateRoute path="/drink" component={DrinkDetails} />
   </Switch>
 );
 

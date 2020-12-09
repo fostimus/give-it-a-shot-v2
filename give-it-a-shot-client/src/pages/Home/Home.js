@@ -42,7 +42,14 @@ export const Home = props => {
             large={desktop}
             className={styles.button}
             path="/quiz"
-            text="Take the drink quiz"
+            text="Take the quiz"
+          />
+
+          <ButtonLink
+            small={!desktop}
+            className={styles.button}
+            path="/drink/random"
+            text="Random Drink"
           />
 
           <Favorites currentUser={props.currentUser} />

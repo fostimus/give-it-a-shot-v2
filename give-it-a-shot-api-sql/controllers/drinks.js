@@ -34,7 +34,7 @@ const getDrinkDetails = (req, res) => {
 
   axios
     .get(cdbDetails)
-    .then(response => res.json(response.data.drinks))
+    .then(response => res.json(response.data.drinks[0]))
     .catch(error => console.error(error));
 };
 
