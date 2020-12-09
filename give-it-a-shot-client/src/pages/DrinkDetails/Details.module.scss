@@ -10,10 +10,7 @@
 }
 
 .card {
-  justify-content: center;
-  border: solid 3px black;
-  padding: 15px;
-  width: 30rem;
+  margin-bottom: 20px;
 }
 
 .cardImg,
@@ -55,15 +52,17 @@
   margin-top: 15px;
 }
 
+.footer {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
 @media screen and (max-width: $mobile-breakpoint) {
   .cardImg,
   .ingredients,
   .category,
   .drinkName {
     width: 200px;
-  }
-
-  .card {
-    width: 20rem;
   }
 }

@@ -10,6 +10,7 @@ export const DrinkDetails = props => {
   const [drink, setDrinkDetails] = useState({});
 
   const getDrinks = () => {
+    console.log(props.history);
     if (props.random) {
       DrinksApi.getRandomDrink().then(data => {
         setDrinkDetails(data);
@@ -39,33 +40,29 @@ export const DrinkDetails = props => {
         <Card.Body className={`${styles.cardBody}`}>
           <h1 className={`${styles.drinkName}`}> {drink.strDrink} </h1>
           <Card.Text className={`${styles.category}`}>
-            <div>
-              <h5>Drink Category:</h5>
-              {drink.strCategory}
-            </div>
-            <div>
-              <h5>Type of Glass:</h5>
-              {drink.strGlass}
-            </div>
+            {drink.strCategory}
           </Card.Text>
         </Card.Body>
         <ListGroup className={`${styles.ingredients}`}>
-          <h5>Ingredients:</h5>
+          <h3>Ingredients:</h3>
           <ListGroupItem>{drink.strIngredient1}</ListGroupItem>
           <ListGroupItem>{drink.strIngredient2}</ListGroupItem>
           <ListGroupItem>{drink.strIngredient3}</ListGroupItem>
           <ListGroupItem>{drink.strIngredient4}</ListGroupItem>
         </ListGroup>
-        <Card.Footer>
+        <Card.Footer className={styles.footer}>
           <Button
             className={`${styles.detailButton}`}
+            small={true}
             type="submit"
-            onClick={() =>
-              props.history.push({
-                pathname: "/quiz"
-              })
-            }
-            content="Back to Results"
+            onClick={() => props.history.goBack()}
+            content="Back"
+          />
+          <Button
+            className={`${styles.detailButton}`}
+            small={true}
+            type="submit"
+            content="More Drinks Like This"
           />
         </Card.Footer>
       </Card>
