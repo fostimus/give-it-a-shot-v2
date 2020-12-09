@@ -22,9 +22,8 @@ export default class DrinksApi {
   }
 
   static getDrinkDetails(idDrink) {
-    return fetch(
-      `${REACT_APP_API_URL}/drinks/drink/${idDrink}`, {
-        method: "GET"
-      }).then(res => res.json());
+    return fetch(`${REACT_APP_API_URL}/drinks/${idDrink}`, {
+      method: "GET"
+    }).then(res => res.json());
   }
 }

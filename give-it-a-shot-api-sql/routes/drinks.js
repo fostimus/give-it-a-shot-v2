@@ -3,6 +3,7 @@ const ctrl = require("../controllers");
 
 router.get("/question/:id", ctrl.drinks.nextQuestion);
 router.post("/results", ctrl.drinks.getRecommendations);
-router.get("/drink/:idDrink", ctrl.drinks.getDrinkDetails);
+router.get("/random", ctrl.drinks.randomDrink);
+router.get("/:drinkId", ctrl.drinks.getDrinkDetails);
 
 module.exports = router;

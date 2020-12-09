@@ -36,7 +36,6 @@ export const Home = props => {
         <div className={styles.loggedIn}>
           <div>
             <h2>Welcome Home, {firstName}</h2>
-            <h3>Grab a Drink 🍸</h3>
           </div>
 
           <ButtonLink
