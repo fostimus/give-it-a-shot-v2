@@ -22,7 +22,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "publishheroku": "cd ../ && git subtree push --prefix give-it-a-shot-client give-it-a-shot-client main || true"
+    "publishheroku": "cd ../ && git subtree push --prefix give-it-a-shot-client giveitashotv2 main || true"
   },
   "eslintConfig": {
     "extends": [
