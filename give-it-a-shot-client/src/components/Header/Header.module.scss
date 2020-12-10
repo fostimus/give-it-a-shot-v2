@@ -61,7 +61,7 @@ header {
 
 .header {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 50% 1fr;
   width: 100%;
 
   h1 {

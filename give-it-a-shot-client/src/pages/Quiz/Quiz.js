@@ -17,6 +17,18 @@ export function Quiz(props) {
   const [selected, setSelected] = useState("");
   const [results, setResults] = useState({});
 
+  const clearState = () => {
+    setQuestion({
+      id: 1,
+      title: "",
+      field: "",
+      options: [],
+      submitText: "",
+      numPages: 0
+    });
+    setCurrentPage(0);
+  };
+
   // results state
   /**
    * look into changing to results page like this:
@@ -42,6 +54,7 @@ export function Quiz(props) {
 
     // exit condition, if we reach the end of the questions, go to next page
     if (currentPage + 1 >= question.numPages) {
+      clearState();
       props.history.push({
         pathname: "/results",
         state: {

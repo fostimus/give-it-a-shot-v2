@@ -14,6 +14,8 @@ export function Results(props) {
 
   const getResults = () => {
     DrinksApi.getResults(results).then(data => {
+      console.log(results);
+      console.log(drinks);
       if (data.length > 0) {
         const shownDrinks = [];
         for (let i = 0; i < 2; i++) {
@@ -23,6 +25,10 @@ export function Results(props) {
         setDrinks(data);
         setShownIndex(shownDrinks.length);
         setShownDrinks(shownDrinks);
+      } else {
+        setDrinks([]);
+        setShownIndex(0);
+        setShownDrinks([]);
       }
     });
   };
@@ -60,10 +66,9 @@ export function Results(props) {
               idDrink={drink.idDrink}
               image={drink.strDrinkThumb}
             />
-            <div>
+            <div className={styles.actions}>
               <Button
                 small={true}
-                className={styles.favoriteButton}
                 onClick={() => {
                   const favorite = {
                     drinkName: drink.strDrink,

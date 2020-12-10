@@ -18,12 +18,14 @@
   flex-flow: column wrap;
 }
 
-.favoriteButton {
-  margin: 0 auto;
-}
-
 .submitButton {
   margin-bottom: 80px;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
 @media screen and (max-width: $mobile-breakpoint) {
