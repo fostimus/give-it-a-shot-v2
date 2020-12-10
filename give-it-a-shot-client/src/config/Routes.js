@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 
 import { Home } from "../pages/Home";
 import { Quiz } from "../pages/Quiz";
+import { Results } from "../pages/Results";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
 import { Account } from "../pages/Account";
@@ -57,6 +58,11 @@ const Routes = props => (
     <PrivateRoute
       path="/quiz"
       component={Quiz}
+      currentUser={props.currentUser}
+    />
+    <PrivateRoute
+      path="/results"
+      component={Results}
       currentUser={props.currentUser}
     />
     <PrivateRoute path="/drink/random" component={DrinkDetails} random={true} />
