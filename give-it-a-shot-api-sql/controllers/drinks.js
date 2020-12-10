@@ -49,9 +49,51 @@ const randomDrink = (req, res) => {
     .catch(error => console.error(error));
 };
 
+const randomLiquor = (req, res) => {
+  let randomLiquorUrl =
+    cdbUrl + process.env.API_KEY + "/filter.php?i=" + liquor;
+
+  console.log(randomLiquorUrl);
+
+  axios
+    .get(randomUrl)
+    .then(response => {
+      const drinks = response.data.drinks;
+      const randIndex = Math.floor(Math.random() * drinks.length);
+      res.json(drinks[randIndex]);
+    })
+    .catch(error => console.error(error));
+};
+
+const darks = ["whiskey", "brandy", "rum"];
+const lights = ["vodka", "tequila", "gin"];
+
+const randomColor = async (req, res) => {
+  let randomLiquorUrl = cdbUrl + process.env.API_KEY + "/filter.php?i=";
+
+  let drinks = [];
+
+  if (req.params.color === "dark") {
+    for (liquor of darks) {
+      const response = await axios.get(randomLiquorUrl + liquor);
+      drinks = drinks.concat(response.data.drinks);
+    }
+  }
+  if (req.params.color === "light") {
+    for (liquor of lights) {
+      const response = await axios.get(randomLiquorUrl + liquor);
+      drinks = drinks.concat(response.data.drinks);
+    }
+  }
+
+  const randIndex = Math.floor(Math.random() * drinks.length);
+  res.json(drinks[randIndex]);
+};
+
 module.exports = {
   nextQuestion,
   getRecommendations,
   getDrinkDetails,
-  randomDrink
+  randomDrink,
+  randomColor
 };
