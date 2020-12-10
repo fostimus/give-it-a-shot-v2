@@ -16,6 +16,13 @@ export function Button(props) {
   );
 }
 
+/**
+ * props:
+ * - text: text display w/in button link
+ * - large: display larger button
+ * - small: display smaller button
+ * - className: classes to use
+ */
 export function ButtonLink(props) {
   const content = (
     <Link className={styles.link} to={props.path}>

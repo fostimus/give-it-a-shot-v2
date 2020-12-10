@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Results.module.scss";
 import { Option } from "../../components/Option";
-import { Button } from "../../components/Button";
+import { Button, ButtonLink } from "../../components/Button";
 import UsersApi from "../../backend/user";
 import DrinksApi from "../../backend/drinks";
 import { FavModal } from "../../components/Modal/FavModal";
@@ -59,27 +59,33 @@ export function Results(props) {
               name={drink.strDrink}
               idDrink={drink.idDrink}
               image={drink.strDrinkThumb}
-              action={"/drink/" + drink.idDrink}
             />
-            <Button
-              small={true}
-              className={styles.favoriteButton}
-              onClick={() => {
-                const favorite = {
-                  drinkName: drink.strDrink,
-                  liquor: "test",
-                  cocktailDbId: drink.idDrink,
-                  imageUrl: drink.strDrinkThumb
-                };
+            <div>
+              <Button
+                small={true}
+                className={styles.favoriteButton}
+                onClick={() => {
+                  const favorite = {
+                    drinkName: drink.strDrink,
+                    liquor: "test",
+                    cocktailDbId: drink.idDrink,
+                    imageUrl: drink.strDrinkThumb
+                  };
 
-                UsersApi.favorite(props.currentUser, favorite).then(
-                  data => console.log(data)
+                  UsersApi.favorite(props.currentUser, favorite).then(
+                    data => console.log(data)
 
-                  //TODO: add modal here to say the favorite was added, so the user knows
-                );
-              }}
-              content="Add to Favorites"
-            />
+                    //TODO: add modal here to say the favorite was added, so the user knows
+                  );
+                }}
+                content="Add to Favorites"
+              />
+              <ButtonLink
+                small={true}
+                text="Details"
+                path={"/drink/" + drink.idDrink}
+              />
+            </div>
           </div>
         ))}
       </div>
