@@ -10,6 +10,7 @@ export const Account = props => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [liquor, setLiquor] = useState("");
   const [smallButton, setSmallButton] = useState(
     vw > mobileBreakpoint ? false : true
   );
@@ -19,6 +20,7 @@ export const Account = props => {
       setFirstName(data.user.firstName);
       setLastName(data.user.lastName);
       setEmail(data.user.email);
+      setLiquor(data.user.liquor);
     });
   };
 
@@ -41,6 +43,10 @@ export const Account = props => {
     setLastName(e.target.value);
   };
 
+  const handleLiquor = e => {
+    setLiquor(e.target.value);
+  };
+
   const handleEmail = e => {
     setEmail(e.target.value);
   };
@@ -51,6 +57,7 @@ export const Account = props => {
       firstName: firstName,
       lastName: lastName,
       email: email,
+      liquor: liquor,
       id: props.currentUser
     }).then(data => {
       console.log("Successful update:", data);
@@ -93,7 +100,13 @@ export const Account = props => {
       type: "text",
       onChange: handleLastName
     },
-    { name: "Email", value: email, type: "email", onChange: handleEmail }
+    { name: "Email", value: email, type: "email", onChange: handleEmail },
+    {
+      name: "Liquor",
+      value: liquor,
+      type: "text",
+      onChange: handleLiquor
+    }
   ];
 
   return (
