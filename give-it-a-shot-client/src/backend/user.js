@@ -54,9 +54,7 @@ export default class UserApi {
   };
 
   static favorite = (userId, drink) => {
-    console.log(userId);
     console.log(drink);
-
     return fetch(`${REACT_APP_API_URL}/users/${userId}/favorite`, {
       method: "POST",
       headers: {

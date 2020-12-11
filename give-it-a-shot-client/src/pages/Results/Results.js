@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Results.module.scss";
 import { Option } from "../../components/Option";
-import { Button, ButtonLink } from "../../components/Button";
+import { Button, ButtonLink, FavoriteButton } from "../../components/Button";
 import UsersApi from "../../backend/user";
 import DrinksApi from "../../backend/drinks";
 import { FavModal } from "../../components/Modal/FavModal";
@@ -13,9 +13,8 @@ export function Results(props) {
   const [shownDrinks, setShownDrinks] = useState([]);
 
   const getResults = () => {
+    //TODO: pretty sure nothing is getting passed to results here
     DrinksApi.getResults(results).then(data => {
-      console.log(results);
-      console.log(drinks);
       if (data.length > 0) {
         const shownDrinks = [];
         for (let i = 0; i < 2; i++) {
@@ -67,23 +66,10 @@ export function Results(props) {
               image={drink.strDrinkThumb}
             />
             <div className={styles.actions}>
-              <Button
-                small={true}
-                onClick={() => {
-                  const favorite = {
-                    drinkName: drink.strDrink,
-                    liquor: "test",
-                    cocktailDbId: drink.idDrink,
-                    imageUrl: drink.strDrinkThumb
-                  };
-
-                  UsersApi.favorite(props.currentUser, favorite).then(
-                    data => console.log(data)
-
-                    //TODO: add modal here to say the favorite was added, so the user knows
-                  );
-                }}
-                content="Add to Favorites"
+              <FavoriteButton
+                drinkName={drink.strDrink}
+                cdbId={drink.idDrink}
+                imageUrl={drink.strDrinkThumb}
               />
               <ButtonLink
                 small={true}

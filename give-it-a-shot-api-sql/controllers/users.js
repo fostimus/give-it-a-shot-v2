@@ -47,12 +47,12 @@ const destroy = (req, res) => {
 };
 
 const favorite = (req, res) => {
+  console.log(req.body);
   db.user.findByPk(req.params.id).then(foundUser => {
     db.drink
       .findOrCreate({
         where: {
           name: req.body.drinkName,
-          liquor: req.body.liquor,
           cocktailDbId: req.body.cocktailDbId,
           imageUrl: req.body.imageUrl
         }

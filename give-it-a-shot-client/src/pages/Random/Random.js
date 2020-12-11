@@ -33,7 +33,7 @@ export function Random(props) {
   return (
     <div>
       <h2>Random Drinks</h2>
-      <ButtonLink large path="/drink/random" text="Randomize All" />
+      <ButtonLink large path="/random/drink" text="Randomize All" />
       <div className={styles.options}>
         <div className={styles.liquors}>
           {liquors.map(liquor => (

@@ -11,9 +11,7 @@ export function Favorites(props) {
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
-    console.log(props.currentUser);
     UserApi.favorites(props.currentUser).then(data => {
-      console.log(data);
       setFavorites(data);
     });
   }, [props.currentUser]);

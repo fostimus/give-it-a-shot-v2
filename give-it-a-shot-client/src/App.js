@@ -5,6 +5,7 @@ import Routes from "./config/Routes";
 import "./assets/App.css";
 import UserApi from "./backend/user";
 
+export const AppContext = React.createContext(0);
 
 function App() {
   const [currentUser, setCurrentUser] = useState(localStorage.getItem("id"));
@@ -26,8 +27,10 @@ function App() {
 
   return (
     <div className="App">
-      <Header currentUser={currentUser} logout={logout} />
-      <Routes currentUser={currentUser} storeUser={storeUser} />
+      <AppContext.Provider value={currentUser}>
+        <Header currentUser={currentUser} logout={logout} />
+        <Routes currentUser={currentUser} storeUser={storeUser} />
+      </AppContext.Provider>
     </div>
   );
 }

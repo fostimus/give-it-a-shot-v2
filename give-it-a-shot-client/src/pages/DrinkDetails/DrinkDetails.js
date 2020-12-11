@@ -4,7 +4,7 @@ import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import ListGroupItem from "react-bootstrap/ListGroupItem";
 import styles from "./Details.module.scss";
-import { Button } from "../../components/Button";
+import { Button, FavoriteButton } from "../../components/Button";
 
 export const DrinkDetails = props => {
   const [drink, setDrinkDetails] = useState({});
@@ -50,6 +50,12 @@ export const DrinkDetails = props => {
           <ListGroupItem>{drink.strIngredient3}</ListGroupItem>
           <ListGroupItem>{drink.strIngredient4}</ListGroupItem>
         </ListGroup>
+        <FavoriteButton
+          drinkName={drink.strDrink}
+          liquor={drink.strIngredient1}
+          cdbId={drink.idDrink}
+          imageUrl={drink.strDrinkThumb}
+        />
         <Card.Footer className={styles.footer}>
           <Button
             className={`${styles.detailButton}`}

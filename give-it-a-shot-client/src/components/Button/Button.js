@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext } from "../../App";
 import { Link } from "react-router-dom";
+import UsersApi from "../../backend/user";
 import styles from "./Button.module.scss";
 
 export function Button(props) {
@@ -35,6 +37,29 @@ export function ButtonLink(props) {
       small={props.small}
       className={props.className}
       content={content}
+    />
+  );
+}
+
+export function FavoriteButton(props) {
+  const user = useContext(AppContext);
+  return (
+    <Button
+      small={true}
+      onClick={() => {
+        const favorite = {
+          drinkName: props.drinkName,
+          cocktailDbId: props.cdbId,
+          imageUrl: props.imageUrl
+        };
+
+        UsersApi.favorite(user, favorite).then(
+          data => console.log(data)
+
+          //TODO: add modal here to say the favorite was added, so the user knows
+        );
+      }}
+      content="Add to Favorites"
     />
   );
 }
