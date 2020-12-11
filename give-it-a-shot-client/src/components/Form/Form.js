@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Form.module.scss";
 import { Button } from "../Button";
-import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
+import { Dropdown } from "../Dropdown";
 import DrinksApi from "../../backend/drinks";
 
 export function Form(props) {
-  const [dropVal, setDropVal] = useState("None Selected");
   const [liquorTypes, setLiquorTypes] = useState([]);
 
   useEffect(() => {
@@ -14,10 +12,6 @@ export function Form(props) {
       setLiquorTypes(data);
     });
   });
-
-  const dropItemClick = value => {
-    setDropVal(value);
-  };
 
   return (
     <div className={props.className}>
@@ -30,21 +24,7 @@ export function Form(props) {
                 <label htmlFor={field.name}>{field.name}</label>
               </div>
               {field.type === "dropdown" ? (
-                <>
-                  <input type="hidden" name="liquor" value={dropVal} />
-                  <DropdownButton id="dropdown-basic-button" title={dropVal}>
-                    {liquorTypes.map(liquor => (
-                      <Dropdown.Item
-                        onClick={() => {
-                          dropItemClick("Action");
-                        }}
-                        href="#/action-1"
-                      >
-                        {liquor}
-                      </Dropdown.Item>
-                    ))}
-                  </DropdownButton>
-                </>
+                <Dropdown options={liquorTypes} />
               ) : (
                 <input
                   onChange={field.onChange}

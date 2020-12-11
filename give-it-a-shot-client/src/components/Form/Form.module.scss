@@ -21,6 +21,12 @@
   margin: 0 auto;
 }
 
+.drop .dropdown-menu {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: flex-start;
+}
+
 $button-color: #1b4332;
 $transition: all 0.7s;
 
