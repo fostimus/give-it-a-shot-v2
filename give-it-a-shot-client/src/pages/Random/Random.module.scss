@@ -1,0 +1,16 @@
+.liquors,
+.colors {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 20px;
+}
+
+.colors {
+  justify-content: space-evenly;
+}
+
+.options {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+}

@@ -66,14 +66,15 @@ const randomDrink = (req, res) => {
 
 const randomLiquor = (req, res) => {
   let randomLiquorUrl =
-    cdbUrl + process.env.API_KEY + "/filter.php?i=" + liquor;
+    cdbUrl + process.env.API_KEY + "/filter.php?i=" + req.params.liquor;
 
   console.log(randomLiquorUrl);
 
   axios
-    .get(randomUrl)
+    .get(randomLiquorUrl)
     .then(response => {
       const drinks = response.data.drinks;
+      console.log(drinks);
       const randIndex = Math.floor(Math.random() * drinks.length);
       res.json(drinks[randIndex]);
     })
@@ -110,6 +111,7 @@ module.exports = {
   getRecommendations,
   getDrinkDetails,
   randomDrink,
+  randomLiquor,
   randomColor,
   getLiquorChoices
 };

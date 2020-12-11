@@ -36,4 +36,10 @@ export default class DrinksApi {
       method: "GET"
     }).then(res => res.json());
   }
+
+  static getRandomLiquor(value) {
+    return fetch(`${REACT_APP_API_URL}/drinks/random/liquor/${value}`, {
+      method: "GET"
+    }).then(res => res.json());
+  }
 }

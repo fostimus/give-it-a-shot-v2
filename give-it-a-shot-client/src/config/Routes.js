@@ -8,6 +8,7 @@ import Register from "../pages/Register";
 import Login from "../pages/Login";
 import { Account } from "../pages/Account";
 import { DrinkDetails } from "../pages/DrinkDetails";
+import { Random } from "../pages/Random";
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const currentUser = localStorage.getItem("id");
@@ -67,6 +68,7 @@ const Routes = props => (
     />
     <PrivateRoute path="/drink/random" component={DrinkDetails} random={true} />
     <PrivateRoute path="/drink" component={DrinkDetails} />
+    <PrivateRoute path="/random" component={Random} />
   </Switch>
 );
 
