@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import DrinksApi from "../../backend/drinks";
-import { Button } from "../../components/Button";
+import { Button, ButtonLink } from "../../components/Button";
 import styles from "./Random.module.scss";
 
 export function Random(props) {
@@ -22,10 +22,18 @@ export function Random(props) {
     });
   };
 
+  const randomColor = value => {
+    DrinksApi.getRandomColor(value).then(data => {
+      props.history.push({
+        pathname: `/drink/${data.idDrink}`
+      });
+    });
+  };
+
   return (
     <div>
       <h2>Random Drinks</h2>
-      <Button large content="Randomize All" />
+      <ButtonLink large path="/drink/random" text="Randomize All" />
       <div className={styles.options}>
         <div className={styles.liquors}>
           {liquors.map(liquor => (
@@ -40,7 +48,13 @@ export function Random(props) {
         </div>
         <div className={styles.colors}>
           {colors.map(color => (
-            <Button key={color} content={color} />
+            <Button
+              key={color}
+              onClick={() => {
+                randomColor(color);
+              }}
+              content={color}
+            />
           ))}
         </div>
       </div>

@@ -89,13 +89,13 @@ const randomColor = async (req, res) => {
 
   let drinks = [];
 
-  if (req.params.color === "dark") {
+  if (req.params.color.toLowerCase() === "dark") {
     for (liquor of darks) {
       const response = await axios.get(randomLiquorUrl + liquor);
       drinks = drinks.concat(response.data.drinks);
     }
   }
-  if (req.params.color === "light") {
+  if (req.params.color.toLowerCase() === "light") {
     for (liquor of lights) {
       const response = await axios.get(randomLiquorUrl + liquor);
       drinks = drinks.concat(response.data.drinks);

@@ -42,4 +42,10 @@ export default class DrinksApi {
       method: "GET"
     }).then(res => res.json());
   }
+
+  static getRandomColor(value) {
+    return fetch(`${REACT_APP_API_URL}/drinks/random/color/${value}`, {
+      method: "GET"
+    }).then(res => res.json());
+  }
 }
