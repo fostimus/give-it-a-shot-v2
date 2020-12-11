@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { AppContext } from "../../App";
 import { Redirect } from "react-router-dom";
 import UserApi from "../../backend/user";
 import DrinksApi from "../../backend/drinks";
@@ -18,8 +19,10 @@ export const Account = props => {
     vw > mobileBreakpoint ? false : true
   );
 
+  const user = useContext(AppContext);
+
   const fetchUser = () => {
-    UserApi.show(props.currentUser).then(data => {
+    UserApi.show(user).then(data => {
       setFirstName(data.user.firstName);
       setLastName(data.user.lastName);
       setEmail(data.user.email);
@@ -48,7 +51,6 @@ export const Account = props => {
 
   const handleFirstName = e => {
     setFirstName(e.target.value);
-    console.log("inside handelfirstname: " + e);
   };
 
   const handleLastName = e => {
@@ -70,9 +72,8 @@ export const Account = props => {
       lastName: lastName,
       email: email,
       liquor: liquor,
-      id: props.currentUser
+      id: user
     }).then(data => {
-      console.log("Successful update:", data);
       //redirect to home page
       props.history.push("/");
     });
@@ -84,11 +85,9 @@ export const Account = props => {
       firstName: firstName,
       lastName: lastName,
       email: email,
-      id: props.currentUser
+      id: user
     }).then(deletedUser => {
-      console.log(`${firstName} was deleted `);
-      console.log(props.currentUser);
-      if (!props.currentUser) return <Redirect to="/register" />;
+      if (!user) return <Redirect to="/register" />;
     });
   };
 

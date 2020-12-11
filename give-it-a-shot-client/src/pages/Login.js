@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AppContext } from "../App";
 import { Redirect } from "react-router-dom";
 import { Form } from "../components/Form";
 import UserApi from "../backend/user";
@@ -6,6 +7,7 @@ import UserApi from "../backend/user";
 const Login = props => {
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
+  const user = useContext(AppContext);
 
   let handleEmail = e => {
     setEmail(e.target.value);
@@ -36,7 +38,7 @@ const Login = props => {
   };
 
   // if user is logged in, redirect
-  if (props.currentUser) return <Redirect to="/" />;
+  if (user) return <Redirect to="/" />;
 
   const fields = [
     { name: "Email", value: email, type: "email", onChange: handleEmail },

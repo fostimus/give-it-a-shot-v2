@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { AppContext } from "../../App";
 import loggedOutIcon from "./assets/alcohol_icon.png";
 import { Favorites } from "../../components/Favorites";
 import { ButtonLink } from "../../components/Button";
@@ -9,6 +10,7 @@ import { vw, mobileBreakpoint, getViewport } from "../../utility";
 export const Home = props => {
   const [firstName, setFirstName] = useState("");
   const [desktop, setDesktop] = useState(vw > mobileBreakpoint ? true : false);
+  const user = useContext(AppContext);
 
   const checkViewport = () => {
     const [vw, vh] = getViewport();
@@ -21,7 +23,7 @@ export const Home = props => {
   };
 
   const fetchUser = () => {
-    UserApi.show(props.currentUser).then(data => {
+    UserApi.show(user).then(data => {
       setFirstName(data.user.firstName);
     });
   };
@@ -32,7 +34,7 @@ export const Home = props => {
 
   return (
     <>
-      {props.currentUser ? (
+      {user ? (
         <div className={styles.loggedIn}>
           <div>
             <h2>Welcome Home, {firstName}</h2>

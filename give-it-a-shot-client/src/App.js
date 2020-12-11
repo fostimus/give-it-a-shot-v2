@@ -28,8 +28,8 @@ function App() {
   return (
     <div className="App">
       <AppContext.Provider value={currentUser}>
-        <Header currentUser={currentUser} logout={logout} />
-        <Routes currentUser={currentUser} storeUser={storeUser} />
+        <Header logout={logout} />
+        <Routes storeUser={storeUser} />
       </AppContext.Provider>
     </div>
   );
