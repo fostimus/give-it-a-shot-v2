@@ -5,7 +5,7 @@ import styles from "./Header.module.scss";
 import { vw, mobileBreakpoint, getViewport } from "../../utility";
 
 export const Header = props => {
-  const [toggleDisplay, setToggleDisplay] = useState(true);
+  const [toggleDisplay, setToggleDisplay] = useState(false);
   const [headerDisabled, setHeaderDisabled] = useState(
     vw > mobileBreakpoint ? true : false
   );

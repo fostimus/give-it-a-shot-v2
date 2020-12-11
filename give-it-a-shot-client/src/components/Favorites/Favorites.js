@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { AppContext } from "../../App";
 import UserApi from "../../backend/user";
 import { Option } from "../Option";
 import styles from "./assets/Favorites.module.scss";
@@ -9,12 +10,13 @@ import pineapple from "./assets/pineapple.png";
 
 export function Favorites(props) {
   const [favorites, setFavorites] = useState([]);
+  const user = useContext(AppContext);
 
   useEffect(() => {
-    UserApi.favorites(props.currentUser).then(data => {
+    UserApi.favorites(user).then(data => {
       setFavorites(data);
     });
-  }, [props.currentUser]);
+  }, [user]);
 
   return (
     <div>

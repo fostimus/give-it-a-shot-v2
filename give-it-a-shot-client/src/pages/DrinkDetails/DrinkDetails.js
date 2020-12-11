@@ -10,7 +10,6 @@ export const DrinkDetails = props => {
   const [drink, setDrinkDetails] = useState({});
 
   const getDrinks = () => {
-    console.log(props.history);
     if (props.random) {
       DrinksApi.getRandomDrink().then(data => {
         setDrinkDetails(data);
