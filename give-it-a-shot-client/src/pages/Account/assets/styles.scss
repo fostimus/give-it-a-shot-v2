@@ -1,0 +1,8 @@
+@import "../../../assets/globals";
+
+.dropdown-menu {
+  display: flex;
+  flex-flow: column wrap;
+  background: white;
+  width: $input-width;
+}

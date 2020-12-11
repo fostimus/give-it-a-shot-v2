@@ -2,17 +2,8 @@ import React, { useState, useEffect } from "react";
 import styles from "./Form.module.scss";
 import { Button } from "../Button";
 import { Dropdown } from "../Dropdown";
-import DrinksApi from "../../backend/drinks";
 
 export function Form(props) {
-  const [liquorTypes, setLiquorTypes] = useState([]);
-
-  useEffect(() => {
-    DrinksApi.getLiquorTypes().then(data => {
-      setLiquorTypes(data);
-    });
-  });
-
   return (
     <div className={props.className}>
       <h2>{props.title}</h2>
@@ -24,7 +15,11 @@ export function Form(props) {
                 <label htmlFor={field.name}>{field.name}</label>
               </div>
               {field.type === "dropdown" ? (
-                <Dropdown options={liquorTypes} />
+                <Dropdown
+                  selected={field.value}
+                  options={field.options}
+                  onChange={field.onChange}
+                />
               ) : (
                 <input
                   onChange={field.onChange}

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import UserApi from "../../backend/user";
+import DrinksApi from "../../backend/drinks";
 import { Form } from "../../components/Form";
 import { Button } from "../../components/Button";
-import styles from "./Account.module.scss";
+import styles from "./assets/Account.module.scss";
+import "./assets/styles.scss";
 import { vw, mobileBreakpoint, getViewport } from "../../utility";
 
 export const Account = props => {
@@ -11,13 +13,10 @@ export const Account = props => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [liquor, setLiquor] = useState("");
+  const [liquorTypes, setLiquorTypes] = useState([]);
   const [smallButton, setSmallButton] = useState(
     vw > mobileBreakpoint ? false : true
   );
-
-  const onChange = selected => {
-    setSelected(selected);
-  };
 
   const fetchUser = () => {
     UserApi.show(props.currentUser).then(data => {
@@ -25,6 +24,12 @@ export const Account = props => {
       setLastName(data.user.lastName);
       setEmail(data.user.email);
       setLiquor(data.user.liquor);
+    });
+  };
+
+  const fetchLiquorTypes = () => {
+    DrinksApi.getLiquorTypes().then(data => {
+      setLiquorTypes(data);
     });
   };
 
@@ -36,7 +41,10 @@ export const Account = props => {
 
   window.addEventListener("resize", changeSmallButton);
 
-  useEffect(fetchUser, [props.currentUser]);
+  useEffect(() => {
+    fetchUser();
+    fetchLiquorTypes();
+  }, []);
 
   const handleFirstName = e => {
     setFirstName(e.target.value);
@@ -47,8 +55,8 @@ export const Account = props => {
     setLastName(e.target.value);
   };
 
-  const handleLiquor = e => {
-    setLiquor(e.target.value);
+  const handleLiquor = value => {
+    setLiquor(value);
   };
 
   const handleEmail = e => {
@@ -109,7 +117,8 @@ export const Account = props => {
       name: "Liquor",
       value: liquor,
       type: "dropdown",
-      onChange: handleLiquor
+      onChange: handleLiquor,
+      options: liquorTypes
     }
   ];
 
