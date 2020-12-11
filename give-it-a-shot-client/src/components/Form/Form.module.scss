@@ -1,3 +1,5 @@
+@import "../../assets/globals";
+
 .form-flex {
   display: flex;
   flex-flow: column wrap;
@@ -17,4 +19,26 @@
 
 .centered {
   margin: 0 auto;
+}
+
+$button-color: #1b4332;
+$transition: all 0.7s;
+
+.button {
+  button {
+    background: $button-color;
+    border: 2px solid $button-color;
+    color: $white;
+    min-width: 150px;
+    font-size: 20px;
+    border-radius: 5px;
+    transition: $transition;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+      background: $button-color;
+      color: $white;
+    }
+  }
 }

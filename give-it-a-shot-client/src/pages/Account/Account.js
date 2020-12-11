@@ -15,6 +15,10 @@ export const Account = props => {
     vw > mobileBreakpoint ? false : true
   );
 
+  const onChange = selected => {
+    setSelected(selected);
+  };
+
   const fetchUser = () => {
     UserApi.show(props.currentUser).then(data => {
       setFirstName(data.user.firstName);
@@ -104,7 +108,7 @@ export const Account = props => {
     {
       name: "Liquor",
       value: liquor,
-      type: "text",
+      type: "dropdown",
       onChange: handleLiquor
     }
   ];
@@ -120,6 +124,7 @@ export const Account = props => {
           onSubmit={handleUpdate}
           fields={fields}
         />
+
         <Button
           type="submit"
           small={smallButton}

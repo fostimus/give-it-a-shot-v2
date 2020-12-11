@@ -20,6 +20,15 @@ $transition: all 0.7s;
   }
 }
 
+@media (min-width: $mobile-breakpoint) {
+  .button {
+    &:hover {
+      color: $button-color;
+      background-color: $white;
+    }
+  }
+}
+
 .small {
   min-width: 120px;
   font-size: 16px;
@@ -43,14 +52,5 @@ $transition: all 0.7s;
 
   &:hover {
     color: $button-color;
-  }
-}
-
-@media (min-width: $mobile-breakpoint) {
-  .button {
-    &:hover {
-      color: $button-color;
-      background-color: $white;
-    }
   }
 }

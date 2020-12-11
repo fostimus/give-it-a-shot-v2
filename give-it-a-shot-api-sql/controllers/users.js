@@ -19,7 +19,8 @@ const update = (req, res) => {
       {
         email: req.body.email,
         firstName: req.body.firstName,
-        lastName: req.body.lastName
+        lastName: req.body.lastName,
+        liquor: req.body.liquor
       },
       {
         where: {

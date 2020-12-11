@@ -13,6 +13,21 @@ const nextQuestion = async (req, res) => {
   return res.json(question);
 };
 
+// to be change resistant, refactor this to finding the "liquor" field
+const getLiquorChoices = async (req, res) => {
+  const quizQuestions = await data.drinks.getQuizQuestions();
+
+  if (quizQuestions[0].field === "liquor") {
+    const question = quizQuestions[0].options.map(option => {
+      return option.name;
+    });
+
+    return res.json(question);
+  } else {
+    res.json({ error: "none" });
+  }
+};
+
 const getRecommendations = (req, res) => {
   let searchUrl = cdbUrl + process.env.API_KEY + "/filter.php?i=";
   for (const key of Object.keys(req.body)) {
@@ -95,5 +110,6 @@ module.exports = {
   getRecommendations,
   getDrinkDetails,
   randomDrink,
-  randomColor
+  randomColor,
+  getLiquorChoices
 };

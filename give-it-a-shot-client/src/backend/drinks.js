@@ -11,6 +11,10 @@ export default class DrinksApi {
     ).then(res => res.json());
   }
 
+  static getLiquorTypes() {
+    return fetch(`${REACT_APP_API_URL}/drinks/liquor`).then(res => res.json());
+  }
+
   static getResults(data) {
     return fetch(`${REACT_APP_API_URL}/drinks/results`, {
       method: "POST",
