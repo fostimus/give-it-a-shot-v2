@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import { AppContext } from "../../App";
 import { Link } from "react-router-dom";
+import icon from "../../assets/alcohol_icon.png";
 import styles from "./Header.module.scss";
 import { vw, mobileBreakpoint, getViewport } from "../../utility";
 
 export const Header = props => {
-  const [toggleDisplay, setToggleDisplay] = useState(false);
+  const [toggleDisplay, setToggleDisplay] = useState(true);
   const [headerDisabled, setHeaderDisabled] = useState(
     vw > mobileBreakpoint ? true : false
   );
@@ -41,6 +42,7 @@ export const Header = props => {
         onClick={toggleMenu}
       >
         <h1>Give It A Shot</h1>
+        <img className={styles.icon} src={icon} alt="" />
       </button>
       <div
         className={`${toggleDisplay ? null : styles.hidden} ${styles.links}`}
@@ -54,7 +56,7 @@ export const Header = props => {
 
   const loggedOut = (
     <>
-      <h1>Give It A Shot</h1>
+      <h1 className={styles.loggedOut}>Give It A Shot</h1>
     </>
   );
   return <header>{user ? loggedIn : loggedOut}</header>;

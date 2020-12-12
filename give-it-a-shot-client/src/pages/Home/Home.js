@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import { AppContext } from "../../App";
-import loggedOutIcon from "./assets/alcohol_icon.png";
+import logo from "../../assets/alcohol_icon.png";
 import { Favorites } from "../../components/Favorites";
 import { ButtonLink } from "../../components/Button";
-import styles from "./assets/Home.module.scss";
+import styles from "./Home.module.scss";
 import UserApi from "../../backend/user";
 import { vw, mobileBreakpoint, getViewport } from "../../utility";
 
@@ -60,7 +60,7 @@ export const Home = props => {
         <div className={styles.home}>
           <img
             className={`${styles.mainIcon} ${styles.centered}`}
-            src={loggedOutIcon}
+            src={logo}
             alt=""
           />
           <ButtonLink
