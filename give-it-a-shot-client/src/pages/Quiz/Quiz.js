@@ -3,8 +3,6 @@ import { QuizForm } from "../../components/QuizForm";
 import DrinksApi from "../../backend/drinks";
 
 export function Quiz(props) {
-  //TODO: implement going back
-
   const [question, setQuestion] = useState({
     id: 1,
     title: "",
@@ -28,15 +26,6 @@ export function Quiz(props) {
     });
     setCurrentPage(0);
   };
-
-  // results state
-  /**
-   * look into changing to results page like this:
-   * props.history.push({
-  pathname: '/somePlace',
-  state: data_you_need_to_pass
-});
-   */
 
   const addToResults = () => {
     results[question.field] = selected;
@@ -75,7 +64,6 @@ export function Quiz(props) {
     });
   }
 
-  //TODO: use react contexts to pass down current user
   return (
     <>
       <QuizForm

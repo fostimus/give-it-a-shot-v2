@@ -37,7 +37,7 @@ export const Account = props => {
   };
 
   const changeSmallButton = () => {
-    const [vw, vh] = getViewport();
+    const vw = getViewport()[0];
 
     setSmallButton(vw > mobileBreakpoint ? false : true);
   };
@@ -47,7 +47,7 @@ export const Account = props => {
   useEffect(() => {
     fetchUser();
     fetchLiquorTypes();
-  }, []);
+  });
 
   const handleFirstName = e => {
     setFirstName(e.target.value);

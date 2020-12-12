@@ -2,19 +2,15 @@ import React, { useState, useEffect } from "react";
 import styles from "./Results.module.scss";
 import { Option } from "../../components/Option";
 import { Button, ButtonLink, FavoriteButton } from "../../components/Button";
-import UsersApi from "../../backend/user";
 import DrinksApi from "../../backend/drinks";
-import { FavModal } from "../../components/Modal/FavModal";
 
 export function Results(props) {
-  const [results, setResults] = useState({});
   const [drinks, setDrinks] = useState([]);
   const [shownIndex, setShownIndex] = useState(0);
   const [shownDrinks, setShownDrinks] = useState([]);
 
   const getResults = () => {
-    //TODO: pretty sure nothing is getting passed to results here
-    DrinksApi.getResults(results).then(data => {
+    DrinksApi.getResults(props.location.state.results).then(data => {
       if (data.length > 0) {
         const shownDrinks = [];
         for (let i = 0; i < 2; i++) {
@@ -32,7 +28,7 @@ export function Results(props) {
     });
   };
 
-  useEffect(getResults, []);
+  useEffect(getResults, [props.location.state.results]);
 
   const getMoreDrinks = () => {
     for (let i = shownIndex; i < 2 + shownIndex; i++) {

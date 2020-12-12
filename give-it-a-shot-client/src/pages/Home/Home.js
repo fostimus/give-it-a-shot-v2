@@ -13,7 +13,7 @@ export const Home = props => {
   const user = useContext(AppContext);
 
   const checkViewport = () => {
-    const [vw, vh] = getViewport();
+    const vw = getViewport()[0];
 
     if (vw > mobileBreakpoint) {
       setDesktop(true);
@@ -28,7 +28,7 @@ export const Home = props => {
     });
   };
 
-  useEffect(fetchUser, []);
+  useEffect(fetchUser, [user]);
 
   window.addEventListener("resize", checkViewport);
 

@@ -5,8 +5,7 @@ import styles from "./Random.module.scss";
 
 export function Random(props) {
   const [liquors, setLiquors] = useState([]);
-  const [colors, setColors] = useState(["Dark", "Light"]);
-
+  const colors = ["Dark", "Light"];
   //TODO: use react context to set liquor, maybe ingredients, throughout app
   useEffect(() => {
     DrinksApi.getLiquorTypes().then(data => {

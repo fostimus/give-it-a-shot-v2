@@ -26,7 +26,7 @@ export const DrinkDetails = props => {
 
   useEffect(() => {
     getDrinks();
-  }, []);
+  });
 
   return (
     <div className={`${styles.container} ${styles.options}`}>
