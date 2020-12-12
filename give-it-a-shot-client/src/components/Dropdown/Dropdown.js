@@ -4,7 +4,7 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import styles from "./Dropdown.module.scss";
 
 export function Dropdown(props) {
-  const [selected, setSelected] = useState("None Selected");
+  const [selected, setSelected] = useState("");
 
   const dropItemClick = value => {
     setSelected(value);

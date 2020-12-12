@@ -26,7 +26,7 @@ export const Account = props => {
       setFirstName(data.user.firstName);
       setLastName(data.user.lastName);
       setEmail(data.user.email);
-      setLiquor(data.user.liquor);
+      setLiquor(data.user.liquor ? data.user.liquor : "None");
     });
   };
 
