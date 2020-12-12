@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { AppContext } from "../../App";
 import { Link } from "react-router-dom";
 import icon from "../../assets/alcohol_icon.png";
@@ -6,7 +6,9 @@ import styles from "./Header.module.scss";
 import { vw, mobileBreakpoint, getViewport } from "../../utility";
 
 export const Header = props => {
-  const [toggleDisplay, setToggleDisplay] = useState(true);
+  const [toggleDisplay, setToggleDisplay] = useState(
+    vw > mobileBreakpoint ? true : false
+  );
   const [headerDisabled, setHeaderDisabled] = useState(
     vw > mobileBreakpoint ? true : false
   );
@@ -17,7 +19,7 @@ export const Header = props => {
   };
 
   const responsiveChange = () => {
-    const [vw, vh] = getViewport();
+    const vw = getViewport()[0];
 
     if (vw > mobileBreakpoint) {
       setToggleDisplay(true);
