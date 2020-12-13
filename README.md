@@ -82,25 +82,7 @@ We used [this Trello board](https://trello.com/b/eroCMlow/mezcalcoholics) to man
 
 ## Code Snippets
 
-[Client Side Routing](https://github.com/kelseywhallon/give-it-a-shot/blob/submain/give-it-a-shot-client/src/config/Routes.js)
-
-### Kelsey
-1. [Drink Details](give-it-a-shot-client/src/pages/DrinkDetails/DrinkDetails.js)
-2. [User CRUD](give-it-a-shot-client/src/pages/UserProfile/UserProfile.js)
-
-### Derek
-
-1.  [images - `fs` module parsing](https://github.com/kelseywhallon/give-it-a-shot/blob/submain/give-it-a-shot-api-sql/data/images.js)
-2.  [Option Component](https://github.com/kelseywhallon/give-it-a-shot/blob/submain/give-it-a-shot-client/src/components/Option/Option.js)
-
 ## Future Development
 
--   Bubble up Sequelize errors, like password validation needs to be 8 characters long
--   Implement API calls with Axios, for range of added features: wider browser support, easy to use progress bar, simultaneous requests
--   Only suggest the ingredients that pair with the appropriate liquor, instead of all ingredients
--   Create an Account navigation link, with a drop down for "Account Details" and "Favorites"
--   Redirect user home after registering, instead of logging in
--   Register/Log in errors - none are thrown, the user has no idea what is happenign
--   Use React Contexts to avoid explicitly passing props down
--   Update "Load More" button to use modal
--   Random drink button
+-   Refactor Modal - Bootstrap Modal is kinda janky
+-   User errors/validation
