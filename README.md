@@ -87,3 +87,4 @@ We used [this Trello board](https://trello.com/b/eroCMlow/mezcalcoholics) to man
 -   Refactor Modal - Bootstrap Modal is kinda janky
 -   User errors/validation
 -   Update Header for better nav set up... current grid + mobile center nav works, but is very brittle. Adding content will break it, should find a more sustainable of navigation
+-   Leverage users favorite alcohol from Account page in determining rest of app's recommendations (UX to add: information ON the liquor dropdown itself on the Account page)
