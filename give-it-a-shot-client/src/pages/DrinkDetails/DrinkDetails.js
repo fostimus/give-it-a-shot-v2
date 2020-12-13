@@ -50,6 +50,7 @@ export const DrinkDetails = props => {
           <ListGroupItem>{drink.strIngredient4}</ListGroupItem>
         </ListGroup>
         <FavoriteButton
+          className={styles.faveButton}
           drinkName={drink.strDrink}
           liquor={drink.strIngredient1}
           cdbId={drink.idDrink}

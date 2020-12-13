@@ -58,6 +58,10 @@
   justify-content: center;
 }
 
+.faveButton {
+  margin-top: 15px;
+}
+
 @media screen and (max-width: $mobile-breakpoint) {
   .cardImg,
   .ingredients,
