@@ -1,4 +1,4 @@
-@import "../../assets/globals";
+@import "../../../assets/globals";
 
 .loggedOut {
   margin: 0 auto;
@@ -8,11 +8,11 @@ header,
 h1 {
   color: $link-color;
   font-family: "NunitoBoldItalic", sans-serif;
+  // text-transform: uppercase;
 }
 
 header {
   background-color: rgba(239, 250, 241, 0.55);
-  // border: 1px solid white;
 
   text-align: center;
   padding: 20px 10px;
@@ -20,16 +20,10 @@ header {
   justify-content: space-between;
   font-size: 24px;
 
-  // h1 {
-  //   margin: 0 auto;
-  // }
-
   button {
-    // &:disabled {
     background: transparent;
     border: none;
     outline: none;
-    // }
   }
 
   a {
@@ -90,6 +84,10 @@ header {
   display: block;
 }
 
+.menu {
+  display: none;
+}
+
 .icon {
   width: 50px;
 }
@@ -123,9 +121,19 @@ header {
     width: 100%;
   }
 
-  .icon {
+  .icon,
+  .menu {
     position: absolute;
     width: 35px;
+  }
+
+  .menu {
+    display: block;
+    left: 0;
+    margin-left: 7px;
+  }
+
+  .icon {
     right: 0;
     margin-right: 7px;
   }

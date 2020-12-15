@@ -2,7 +2,8 @@ import React, { useState, useContext } from "react";
 import { AppContext } from "../../App";
 import { Link } from "react-router-dom";
 import icon from "../../assets/alcohol_icon.png";
-import styles from "./Header.module.scss";
+import navMenu from "./assets/menu-boxed.svg";
+import styles from "./assets/Header.module.scss";
 import { vw, mobileBreakpoint, getViewport } from "../../utility";
 
 export const Header = props => {
@@ -43,6 +44,7 @@ export const Header = props => {
         disabled={headerDisabled}
         onClick={toggleMenu}
       >
+        <img className={styles.menu} src={navMenu} />
         <h1>Give It A Shot</h1>
         <img className={styles.icon} src={icon} alt="" />
       </button>
