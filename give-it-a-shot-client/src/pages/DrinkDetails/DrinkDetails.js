@@ -24,9 +24,7 @@ export const DrinkDetails = props => {
     }
   };
 
-  useEffect(() => {
-    getDrinks();
-  });
+  useEffect(getDrinks, [props.history.location, props.random]);
 
   return (
     <div className={`${styles.container} ${styles.options}`}>
