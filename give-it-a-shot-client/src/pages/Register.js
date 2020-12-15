@@ -61,7 +61,12 @@ const Register = props => {
           setModalTitle("Password is too short");
         }
       } else {
-        props.history.push("/login");
+        setModalToggled(true);
+        setModalTitle("Thanks for registering");
+        setModalBody(
+          "Once you log in, you will be taken to our expert crafted drink quiz. This will finish setting up your account for you, customizing your account so that you can get the most out of Give It A Shot!"
+        );
+        // props.history.push("/login");
       }
     }
   };
