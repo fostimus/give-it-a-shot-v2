@@ -13,7 +13,8 @@ $transition: all 0.7s;
   transition: $transition;
   cursor: pointer;
 
-  &:focus {
+  &:focus,
+  &:visited {
     outline: none;
     background: $button-color;
     color: $white;
@@ -42,10 +43,11 @@ $transition: all 0.7s;
 .link {
   display: inline-block;
   width: 100%;
+  color: $white;
 
   text-decoration: none;
-  transition: $transition;
 
+  &:focus,
   &:visited {
     color: $white;
   }

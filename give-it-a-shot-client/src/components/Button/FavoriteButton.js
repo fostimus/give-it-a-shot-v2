@@ -14,6 +14,8 @@ export function FavoriteButton(props) {
   return (
     <>
       <Button
+        small={props.small}
+        large={props.large}
         className={props.className}
         onClick={() => {
           const favorite = {

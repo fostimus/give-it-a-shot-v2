@@ -3,18 +3,36 @@ import styles from "./Results.module.scss";
 import { Option } from "../../components/Option";
 import { Button, ButtonLink, FavoriteButton } from "../../components/Button";
 import DrinksApi from "../../backend/drinks";
+import { vw, mobileBreakpoint, getViewport } from "../../utility";
 
 export function Results(props) {
   const [drinks, setDrinks] = useState([]);
   const [shownIndex, setShownIndex] = useState(0);
   const [shownDrinks, setShownDrinks] = useState([]);
+  const [smallButton, setsSmallButton] = useState(
+    vw > mobileBreakpoint ? false : true
+  );
+
+  const changeButtonSize = () => {
+    const vw = getViewport()[0];
+
+    if (vw > mobileBreakpoint) {
+      setsSmallButton(false);
+    } else if (vw <= mobileBreakpoint) {
+      setsSmallButton(true);
+    }
+  };
+
+  window.addEventListener("resize", changeButtonSize);
 
   const getResults = () => {
     DrinksApi.getResults(props.location.state.results).then(data => {
       if (data.length > 0) {
         const shownDrinks = [];
         for (let i = 0; i < 2; i++) {
-          shownDrinks.push(data[i]);
+          if (data[i]) {
+            shownDrinks.push(data[i]);
+          }
         }
 
         setDrinks(data);
@@ -49,6 +67,8 @@ export function Results(props) {
     }
   };
 
+  console.log(shownDrinks);
+
   return (
     <>
       <h2>Your Recommendations</h2>
@@ -63,12 +83,13 @@ export function Results(props) {
             />
             <div className={styles.actions}>
               <FavoriteButton
+                small={smallButton}
                 drinkName={drink.strDrink}
                 cdbId={drink.idDrink}
                 imageUrl={drink.strDrinkThumb}
               />
               <ButtonLink
-                small={true}
+                small={smallButton}
                 text="Details"
                 path={"/drink/" + drink.idDrink}
               />
