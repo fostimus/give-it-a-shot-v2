@@ -21,8 +21,8 @@ export const Account = props => {
 
   const user = useContext(AppContext);
 
-  const fetchUser = () => {
-    UserApi.show(user).then(data => {
+  const fetchUser = userId => {
+    UserApi.show(userId).then(data => {
       setFirstName(data.user.firstName);
       setLastName(data.user.lastName);
       setEmail(data.user.email);
@@ -45,9 +45,9 @@ export const Account = props => {
   window.addEventListener("resize", changeSmallButton);
 
   useEffect(() => {
-    fetchUser();
+    fetchUser(user);
     fetchLiquorTypes();
-  });
+  }, [user]);
 
   const handleFirstName = e => {
     setFirstName(e.target.value);
