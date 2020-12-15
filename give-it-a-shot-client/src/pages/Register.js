@@ -45,6 +45,7 @@ const Register = props => {
         password
       });
       const data = await response.json();
+      console.log(response);
 
       if (response.status === 400) {
         setModalToggled(true);
@@ -101,7 +102,12 @@ const Register = props => {
         onSubmit={handleSubmit}
         fields={fields}
       />
-      <Modal show={modalToggled} title={modalTitle} body={modalBody} />
+      <Modal
+        show={modalToggled}
+        setModalToggled={setModalToggled}
+        title={modalTitle}
+        body={modalBody}
+      />
     </>
   );
 };

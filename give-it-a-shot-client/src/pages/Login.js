@@ -3,10 +3,16 @@ import { AppContext } from "../App";
 import { Redirect } from "react-router-dom";
 import { Form } from "../components/Form";
 import UserApi from "../backend/user";
+import { Modal } from "../components/Modal";
 
 const Login = props => {
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
+
+  const [modalToggled, setModalToggled] = useState(false);
+  const [modalTitle, setModalTitle] = useState("");
+  const [modalBody, setModalBody] = useState("");
+
   const user = useContext(AppContext);
 
   let handleEmail = e => {
@@ -17,7 +23,7 @@ const Login = props => {
     setPassword(e.target.value);
   };
 
-  let handleSubmit = event => {
+  let handleSubmit = async event => {
     event.preventDefault();
 
     const loginObj = {
@@ -25,16 +31,22 @@ const Login = props => {
       password
     };
 
-    UserApi.login(loginObj)
-      .then(data => {
-        if (!data.user) {
-          console.log("Login Unsuccessful");
-          return false;
-        }
-        // storeUser is defined in the app component and passed to Login
-        props.storeUser(data.user);
-      })
-      .catch(err => console.log("Login Error for: ", loginObj, err));
+    const response = await UserApi.login(loginObj);
+
+    if (response.status === 401) {
+      setModalToggled(true);
+      setModalTitle("Unauthorized");
+      setModalBody("We don't recognize that username and password.");
+    } else {
+      const data = await response.json();
+
+      if (!data.user) {
+        console.log("Login Unsuccessful");
+        return false;
+      }
+      // storeUser is defined in the app component and passed to Login
+      props.storeUser(data.user);
+    }
   };
 
   // if user is logged in, redirect
@@ -51,12 +63,20 @@ const Login = props => {
   ];
 
   return (
-    <Form
-      title="Login"
-      submitText="Login"
-      onSubmit={handleSubmit}
-      fields={fields}
-    />
+    <>
+      <Form
+        title="Login"
+        submitText="Login"
+        onSubmit={handleSubmit}
+        fields={fields}
+      />
+      <Modal
+        show={modalToggled}
+        setModalToggled={setModalToggled}
+        title={modalTitle}
+        body={modalBody}
+      />
+    </>
   );
 };
 

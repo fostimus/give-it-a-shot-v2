@@ -11,7 +11,13 @@ export function Modal(props) {
   }, [props.show]);
 
   return (
-    <BSModal show={show} onHide={toggleShow}>
+    <BSModal
+      show={show}
+      onHide={() => {
+        toggleShow();
+        props.setModalToggled(false);
+      }}
+    >
       <BSModal.Header closeButton>
         <BSModal.Title>{props.title}</BSModal.Title>
       </BSModal.Header>

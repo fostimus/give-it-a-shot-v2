@@ -21,7 +21,7 @@ export default class UserApi {
       body: JSON.stringify(credentials),
       // auth headers - included with any request requiring authentication
       credentials: "include"
-    }).then(res => res.json());
+    });
   }
 
   static logout() {

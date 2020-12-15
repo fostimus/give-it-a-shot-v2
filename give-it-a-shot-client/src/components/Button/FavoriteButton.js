@@ -32,6 +32,7 @@ export function FavoriteButton(props) {
       />
       <Modal
         show={addedFavorite}
+        setModalToggled={setAddedFavorite}
         title="Success"
         body="Drink has been added to your favorites!"
       />
