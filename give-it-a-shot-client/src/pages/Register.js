@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import UserApi from "../backend/user";
 import { Form } from "../components/Form";
+import { Modal } from "../components/Modal";
 
 const Register = props => {
   const [firstName, setFirstName] = useState("");
@@ -8,6 +9,10 @@ const Register = props => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
+  const [modalToggled, setModalToggled] = useState(false);
+  const [modalTitle, setModalTitle] = useState("");
+  const [modalBody, setModalBody] = useState("");
 
   const handleFirstName = e => {
     setFirstName(e.target.value);
@@ -25,15 +30,28 @@ const Register = props => {
     setConfirmPassword(e.target.value);
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
 
     if (password === confirmPassword) {
-      UserApi.create({ firstName, lastName, email, password }).then(data => {
-        console.log("Successful register", data);
+      const response = await UserApi.create({
+        firstName,
+        lastName,
+        email,
+        password
+      });
+      const data = await response.json();
+
+      if (response.status === 400) {
+        console.log("Unsuccessful register", response);
+        setModalToggled(true);
+        setModalTitle("Validation Error");
+        setModalBody(data.message ? data.message : "");
+      } else {
+        console.log("Successful register", response);
         // redirect to /login
         props.history.push("/login");
-      });
+      }
     }
   };
 
@@ -66,12 +84,15 @@ const Register = props => {
   ];
 
   return (
-    <Form
-      title="Register"
-      submitText="Register"
-      onSubmit={handleSubmit}
-      fields={fields}
-    />
+    <>
+      <Form
+        title="Register"
+        submitText="Register"
+        onSubmit={handleSubmit}
+        fields={fields}
+      />
+      <Modal show={modalToggled} title={modalTitle} body={modalBody} />
+    </>
   );
 };
 
