@@ -33,7 +33,11 @@ const Register = props => {
   const handleSubmit = async e => {
     e.preventDefault();
 
-    if (password === confirmPassword) {
+    if (password !== confirmPassword) {
+      setModalToggled(true);
+      setModalTitle("Password does not match");
+      setModalBody("Password and Confirm Password must match");
+    } else {
       const response = await UserApi.create({
         firstName,
         lastName,
@@ -43,13 +47,19 @@ const Register = props => {
       const data = await response.json();
 
       if (response.status === 400) {
-        console.log("Unsuccessful register", response);
         setModalToggled(true);
-        setModalTitle("Validation Error");
         setModalBody(data.message ? data.message : "");
+
+        if (data.field === "email" && data.validation === "alreadyExists") {
+          setModalTitle("Already Exists");
+        }
+        if (data.field === "email" && data.validation === "isEmail") {
+          setModalTitle("Invalid Email");
+        }
+        if (data.field === "password" && data.validation === "len") {
+          setModalTitle("Password is too short");
+        }
       } else {
-        console.log("Successful register", response);
-        // redirect to /login
         props.history.push("/login");
       }
     }

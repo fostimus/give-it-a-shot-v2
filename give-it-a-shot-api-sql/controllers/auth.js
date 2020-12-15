@@ -22,7 +22,11 @@ const register = (req, res) => {
     .findOne({ where: { email } })
     .then(foundUser => {
       if (foundUser) {
-        return res.json({ message: "A user with that email already exists" });
+        return res.status(400).json({
+          field: "email",
+          validation: "alreadyExists",
+          message: "A user with that email already exists"
+        });
       }
 
       // if the user doesnt exist, create and save a user to the DB
