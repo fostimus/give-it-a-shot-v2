@@ -22,6 +22,7 @@ async function loadImages(directoryPath) {
         quizPage.position = configData.position;
         quizPage.title = configData.title;
         quizPage.submitText = configData.submitText;
+        quizPage.ingredient = configData.ingredient;
       }
       // else, add image name to options array
       else {

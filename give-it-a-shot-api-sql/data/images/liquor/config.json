@@ -1,5 +1,6 @@
 {
   "position": 1,
   "title": "What's Your Favorite Liquor?",
-  "submitText": "Next"
+  "submitText": "Next",
+  "ingredient": true
 }

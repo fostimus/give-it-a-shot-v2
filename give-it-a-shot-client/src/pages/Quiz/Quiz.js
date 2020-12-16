@@ -28,7 +28,12 @@ export function Quiz(props) {
   };
 
   const addToResults = () => {
-    results[question.field] = selected;
+    const fieldObj = {};
+    fieldObj.value = selected;
+    fieldObj.ingredient = question.ingredient;
+
+    results[question.field] = fieldObj;
+
     setResults(results);
 
     props.history.push({
@@ -43,7 +48,7 @@ export function Quiz(props) {
 
     // exit condition, if we reach the end of the questions, go to next page
     if (currentPage + 1 >= question.numPages) {
-      clearState();
+      // clearState();
       props.history.push({
         pathname: "/results",
         state: {

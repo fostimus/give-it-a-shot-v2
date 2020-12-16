@@ -8,7 +8,7 @@ import { vw, mobileBreakpoint, getViewport } from "../../utility";
 export function Results(props) {
   const [drinks, setDrinks] = useState([]);
   const [shownIndex, setShownIndex] = useState(0);
-  const [shownDrinks, setShownDrinks] = useState([]);
+  const [shownDrinks, setShownDrinks] = useState(["Yes"]);
   const [smallButton, setsSmallButton] = useState(
     vw > mobileBreakpoint ? false : true
   );
@@ -27,17 +27,18 @@ export function Results(props) {
 
   const getResults = () => {
     DrinksApi.getResults(props.location.state.results).then(data => {
+      console.log(data);
       if (data.length > 0) {
-        const shownDrinks = [];
+        const shownDrinksTemp = [];
         for (let i = 0; i < 2; i++) {
           if (data[i]) {
-            shownDrinks.push(data[i]);
+            shownDrinksTemp.push(data[i]);
           }
         }
 
         setDrinks(data);
-        setShownIndex(shownDrinks.length);
-        setShownDrinks(shownDrinks);
+        setShownIndex(shownDrinksTemp.length);
+        setShownDrinks(shownDrinksTemp);
       } else {
         setDrinks([]);
         setShownIndex(0);
@@ -49,21 +50,22 @@ export function Results(props) {
   useEffect(getResults, [props.location.state.results]);
 
   const getMoreDrinks = () => {
+    const shownDrinksTemp = [];
     for (let i = shownIndex; i < 2 + shownIndex; i++) {
       if (i >= drinks.length) {
         break;
       }
-      shownDrinks.push(drinks[i]);
+      shownDrinksTemp.push(drinks[i]);
     }
 
-    if (shownDrinks.length >= drinks.length) {
+    if (shownDrinksTemp.length >= drinks.length) {
       console.log(
         "Need to add pop up here to alert user no more drinks available"
       );
       // TODO: add modal here to pop up and say no more drinks available
     } else {
-      setShownIndex(shownDrinks.length);
-      setShownDrinks(shownDrinks);
+      setShownIndex(shownDrinksTemp.length);
+      setShownDrinks(shownDrinksTemp);
     }
   };
 

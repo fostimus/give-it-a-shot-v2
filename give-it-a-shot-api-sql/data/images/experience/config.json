@@ -1,5 +1,6 @@
 {
   "position": 0,
   "title": "What's your comfort level?",
-  "submitText": "On to liquor"
+  "submitText": "On to liquor",
+  "ingredient": false
 }

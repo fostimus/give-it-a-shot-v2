@@ -29,9 +29,12 @@ const getLiquorChoices = async (req, res) => {
 };
 
 const getRecommendations = (req, res) => {
+  console.log(req.body);
   let searchUrl = cdbUrl + process.env.API_KEY + "/filter.php?i=";
   for (const key of Object.keys(req.body)) {
-    searchUrl = searchUrl + req.body[key] + ",";
+    if (req.body[key].ingredient) {
+      searchUrl = searchUrl + req.body[key].value + ",";
+    }
   }
 
   //remove trailing ','
@@ -40,8 +43,12 @@ const getRecommendations = (req, res) => {
   axios
     .post(searchUrl)
     .then(response => {
-      console.log(response.data);
-      res.json(response.data.drinks);
+      console.log(response.data.drinks);
+      if (response.data.drinks && response.data.drinks === "None Found") {
+        res.json({ drinks: [] });
+      } else {
+        res.json(response.data.drinks);
+      }
     })
     .catch(error => console.error(error));
 };
