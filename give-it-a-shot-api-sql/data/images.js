@@ -66,8 +66,6 @@ async function getAllFiles(directoryPath) {
         fileExt: entry.name.slice(entry.name.length - 3)
       };
 
-      console.log(image);
-
       files.push(image);
     }
     // if directory, recurse
