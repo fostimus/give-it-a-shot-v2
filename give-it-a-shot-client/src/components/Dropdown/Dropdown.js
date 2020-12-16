@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { default as BSDropdown } from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import styles from "./Dropdown.module.scss";
+import "./dropdown.css";
 
 export function Dropdown(props) {
   const [selected, setSelected] = useState("");
