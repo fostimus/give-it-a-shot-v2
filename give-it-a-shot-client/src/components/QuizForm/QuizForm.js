@@ -26,6 +26,7 @@ export function QuizForm(props) {
         ))}
       </div>
       <Button
+        large
         className={styles.submitButton}
         type="submit"
         onClick={handleSubmit}
