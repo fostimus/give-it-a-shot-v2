@@ -4,14 +4,21 @@ import { Option } from "../../components/Option";
 import { Button, ButtonLink, FavoriteButton } from "../../components/Button";
 import DrinksApi from "../../backend/drinks";
 import { vw, mobileBreakpoint, getViewport } from "../../utility";
+import { Modal } from "../../components/Modal";
 
 export function Results(props) {
   const [drinks, setDrinks] = useState([]);
   const [shownIndex, setShownIndex] = useState(0);
-  const [shownDrinks, setShownDrinks] = useState(["Yes"]);
+  const [shownDrinks, setShownDrinks] = useState([]);
   const [smallButton, setsSmallButton] = useState(
     vw > mobileBreakpoint ? false : true
   );
+
+  // register modal state
+  const [modalToggled, setModalToggled] = useState(false);
+  const [modalTitle, setModalTitle] = useState("");
+  const [modalBody, setModalBody] = useState("");
+  // const [modalButtons, setModalButtons] = useState([]);
 
   const changeButtonSize = () => {
     const vw = getViewport()[0];
@@ -40,6 +47,11 @@ export function Results(props) {
         setShownIndex(shownDrinksTemp.length);
         setShownDrinks(shownDrinksTemp);
       } else {
+        setModalToggled(true);
+        setModalTitle("No Drinks Found");
+        setModalBody(
+          "We could not find any drinks to match your preferences. If you know of one you'd like to add, please email derekfoster94@gmail.com"
+        );
         setDrinks([]);
         setShownIndex(0);
         setShownDrinks([]);
@@ -59,10 +71,11 @@ export function Results(props) {
     }
 
     if (shownDrinksTemp.length >= drinks.length) {
-      console.log(
-        "Need to add pop up here to alert user no more drinks available"
+      setModalToggled(true);
+      setModalTitle("No More Drinks");
+      setModalBody(
+        "We've run out of recommendations for you. If you know of one you'd like to add, please email derekfoster94@gmail.com"
       );
-      // TODO: add modal here to pop up and say no more drinks available
     } else {
       setShownIndex(shownDrinksTemp.length);
       setShownDrinks(shownDrinksTemp);
@@ -100,10 +113,16 @@ export function Results(props) {
         ))}
       </div>
       <Button
-        disabled
+        disabled={drinks.length <= 0}
         className={styles["submitButton"]}
         onClick={getMoreDrinks}
         content="Load More Drinks"
+      />
+      <Modal
+        show={modalToggled}
+        setModalToggled={setModalToggled}
+        title={modalTitle}
+        body={modalBody}
       />
     </>
   );

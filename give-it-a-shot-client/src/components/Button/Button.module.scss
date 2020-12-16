@@ -45,7 +45,7 @@ $transition: all 0.7s;
 // only style hovered buttons if not mobile
 @media (min-width: $mobile-breakpoint) {
   .button {
-    &:enabled :hover {
+    &:enabled:hover {
       color: $button-color;
       background-color: $white;
     }
