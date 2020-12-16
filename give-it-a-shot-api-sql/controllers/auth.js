@@ -35,7 +35,8 @@ const register = (req, res) => {
           firstName,
           lastName,
           email,
-          password
+          password,
+          newUser: true
         })
         .then(newUser => {
           console.log("New user created!");

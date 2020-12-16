@@ -24,6 +24,9 @@ module.exports = {
       liquor: {
         type: Sequelize.STRING
       },
+      newUser: {
+        type: Sequelize.BOOLEAN
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

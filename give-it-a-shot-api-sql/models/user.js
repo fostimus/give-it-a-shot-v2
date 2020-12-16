@@ -67,6 +67,9 @@ module.exports = (sequelize, DataTypes) => {
       },
       liquor: {
         type: DataTypes.STRING
+      },
+      newUser: {
+        type: DataTypes.BOOLEAN
       }
     },
     {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { default as BSModal } from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
+import { ButtonLink } from "../Button";
 
 export function Modal(props) {
   const [show, setShow] = useState(false);
@@ -11,11 +11,13 @@ export function Modal(props) {
     setShow(props.show);
   }, [props.show]);
 
-  const buttons = props.button
+  const buttons = props.buttons
     ? props.buttons.map(button => (
-        <Button variant="primary">Save changes</Button>
+        <ButtonLink variant="primary" text={button.text} path={button.path} />
       ))
     : null;
+
+  console.log(buttons);
 
   const footer = buttons ? <BSModal.Footer>{buttons}</BSModal.Footer> : null;
 

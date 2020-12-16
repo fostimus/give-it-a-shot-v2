@@ -10,9 +10,11 @@ const Register = props => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
+  // register modal state
   const [modalToggled, setModalToggled] = useState(false);
   const [modalTitle, setModalTitle] = useState("");
   const [modalBody, setModalBody] = useState("");
+  const [modalButtons, setModalButtons] = useState([]);
 
   const handleFirstName = e => {
     setFirstName(e.target.value);
@@ -66,7 +68,14 @@ const Register = props => {
         setModalBody(
           "Once you log in, you will be taken to our expert crafted drink quiz. This will finish setting up your account for you, customizing your account so that you can get the most out of Give It A Shot!"
         );
-        // props.history.push("/login");
+        setModalButtons([
+          {
+            text: "Go to Login",
+            path: "/login"
+          }
+        ]);
+        console.log(modalButtons);
+        // ;
       }
     }
   };
@@ -112,6 +121,7 @@ const Register = props => {
         setModalToggled={setModalToggled}
         title={modalTitle}
         body={modalBody}
+        buttons={modalButtons}
       />
     </>
   );
