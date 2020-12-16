@@ -14,11 +14,10 @@ export function Results(props) {
     vw > mobileBreakpoint ? false : true
   );
 
-  // register modal state
+  // results modal state
   const [modalToggled, setModalToggled] = useState(false);
   const [modalTitle, setModalTitle] = useState("");
   const [modalBody, setModalBody] = useState("");
-  // const [modalButtons, setModalButtons] = useState([]);
 
   const changeButtonSize = () => {
     const vw = getViewport()[0];
@@ -62,23 +61,22 @@ export function Results(props) {
   useEffect(getResults, [props.location.state.results]);
 
   const getMoreDrinks = () => {
-    const shownDrinksTemp = [];
     for (let i = shownIndex; i < 2 + shownIndex; i++) {
       if (i >= drinks.length) {
         break;
       }
-      shownDrinksTemp.push(drinks[i]);
+      shownDrinks.push(drinks[i]);
     }
 
-    if (shownDrinksTemp.length >= drinks.length) {
+    if (shownDrinks.length >= drinks.length) {
       setModalToggled(true);
       setModalTitle("No More Drinks");
       setModalBody(
         "We've run out of recommendations for you. If you know of one you'd like to add, please email derekfoster94@gmail.com"
       );
     } else {
-      setShownIndex(shownDrinksTemp.length);
-      setShownDrinks(shownDrinksTemp);
+      setShownIndex(shownDrinks.length);
+      setShownDrinks(shownDrinks);
     }
   };
 
