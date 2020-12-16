@@ -32,7 +32,9 @@ export const Account = props => {
 
   const fetchLiquorTypes = () => {
     DrinksApi.getLiquorTypes().then(data => {
-      setLiquorTypes(data);
+      if (!data.error) {
+        setLiquorTypes(data.concat("None"));
+      }
     });
   };
 

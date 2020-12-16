@@ -14,8 +14,6 @@ export function Dropdown(props) {
     setSelected(props.selected);
   }, [props.selected]);
 
-  const options = props.options.concat("None");
-
   return (
     <>
       <input type="hidden" name="liquor" value={selected} />
@@ -24,7 +22,7 @@ export function Dropdown(props) {
         id="dropdown-basic-button"
         title={selected}
       >
-        {options.map(option => (
+        {props.options.map(option => (
           <BSDropdown.Item
             key={option}
             onClick={() => {
