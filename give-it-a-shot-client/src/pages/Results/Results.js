@@ -111,6 +111,7 @@ export function Results(props) {
         ))}
       </div>
       <Button
+        large
         disabled={drinks.length <= 0}
         className={styles["submitButton"]}
         onClick={getMoreDrinks}
