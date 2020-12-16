@@ -26,11 +26,7 @@ export function Button(props) {
  * - className: classes to use
  */
 export function ButtonLink(props) {
-  const content = (
-    <Link className={styles.link} to={props.path}>
-      {props.text}
-    </Link>
-  );
+  const content = <Link to={props.path}>{props.text}</Link>;
   return (
     <Button
       large={props.large}
