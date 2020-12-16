@@ -51,9 +51,7 @@ async function getAllFiles(directoryPath) {
 
   let files = [];
 
-  // console.log(dirEntries);
   for (const entry of dirEntries) {
-    // console.log(entry);
     // if the entry is a file and is a png, save it to database
     if (entry.isFile() && isFile(entry.name)) {
       /** create image to be save to DB, using:
@@ -63,8 +61,11 @@ async function getAllFiles(directoryPath) {
       const nameOfFile = replaceFilename(entry.name);
       const image = {
         name: nameOfFile,
-        image: fs.readFileSync(directoryPath + "/" + entry.name)
+        image: fs.readFileSync(directoryPath + "/" + entry.name),
+        fileExt: entry.name.slice(entry.name.length - 3)
       };
+
+      console.log(image);
 
       files.push(image);
     }

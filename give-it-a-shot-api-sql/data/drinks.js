@@ -4,17 +4,22 @@ const images = require("./images");
 let quizPages = [];
 
 const populateImages = async quizPage => {
-  console.log(quizPage);
   for (const option of quizPage.options) {
-    console.log(option);
     const returnedImage = await db.image.findOne({
       where: {
         name: option.name
       }
     });
-    option.image = Buffer.from(returnedImage.image).toString("base64");
-    // encoding to base64 removes special characters, so we need to add them back in
-    option.image = "data:image/jpeg;base64," + option.image;
+
+    if (returnedImage.fileExt === "svg") {
+      option.image =
+        "data:image/svg+xml;base64," +
+        Buffer.from(returnedImage.image).toString("base64");
+    } else {
+      option.image =
+        "data:image/jpeg;base64," +
+        Buffer.from(returnedImage.image).toString("base64");
+    }
   }
 };
 

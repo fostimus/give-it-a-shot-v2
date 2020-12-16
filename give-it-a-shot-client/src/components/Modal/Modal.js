@@ -17,8 +17,6 @@ export function Modal(props) {
       ))
     : null;
 
-  console.log(buttons);
-
   const footer = buttons ? <BSModal.Footer>{buttons}</BSModal.Footer> : null;
 
   return (
