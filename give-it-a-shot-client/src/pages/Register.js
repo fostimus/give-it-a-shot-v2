@@ -74,8 +74,6 @@ const Register = props => {
             path: "/login"
           }
         ]);
-        console.log(modalButtons);
-        // ;
       }
     }
   };

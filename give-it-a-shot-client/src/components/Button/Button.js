@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import styles from "./Button.module.scss";
 
 export function Button(props) {
-  console.log(props.disabled);
   return (
     <button
       disabled={props.disabled}
