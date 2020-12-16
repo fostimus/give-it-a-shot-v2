@@ -1,1 +1,1 @@
-create table users (id serial NOT NULL, email varchar(255), "firstName" varchar(255), "lastName" varchar(255), password varchar(255), liquor varchar(255), "createdAt" timestamptz, "updatedAt" timestamptz, PRIMARY KEY (id));
+create table users (id serial NOT NULL, email varchar(255), "firstName" varchar(255), "lastName" varchar(255), password varchar(255), liquor varchar(255), newUser boolean,"createdAt" timestamptz, "updatedAt" timestamptz, PRIMARY KEY (id));
