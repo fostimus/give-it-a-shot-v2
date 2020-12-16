@@ -19,6 +19,10 @@ $transition: all 0.7s;
     background: $button-color;
     color: $white;
   }
+
+  &:disabled {
+    background: $black;
+  }
 }
 
 @media (min-width: $mobile-breakpoint) {
