@@ -3,7 +3,7 @@ const db = require("../models");
 const utility = require("../utility");
 
 const login = (req, res) => {
-  res.json({ user: req.user.id });
+  res.json({ user: req.user.id, newUser: req.user.newUser });
 };
 
 const register = (req, res) => {

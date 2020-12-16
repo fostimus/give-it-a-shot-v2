@@ -4,7 +4,9 @@ const images = require("./images");
 let quizPages = [];
 
 const populateImages = async quizPage => {
+  console.log(quizPage);
   for (const option of quizPage.options) {
+    console.log(option);
     const returnedImage = await db.image.findOne({
       where: {
         name: option.name

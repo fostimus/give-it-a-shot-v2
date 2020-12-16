@@ -46,6 +46,10 @@ const Login = props => {
       }
       // storeUser is defined in the app component and passed to Login
       props.storeUser(data.user);
+
+      if (data.newUser) {
+        props.history.push("/quiz");
+      }
     }
   };
 

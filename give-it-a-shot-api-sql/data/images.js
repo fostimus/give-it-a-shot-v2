@@ -25,7 +25,7 @@ async function loadImages(directoryPath) {
       }
       // else, add image name to options array
       else {
-        const nameOfFile = entry.name.replace(".png", "");
+        const nameOfFile = replaceFilename(entry.name);
         quizPage.options.push({ name: nameOfFile });
       }
     }
@@ -55,12 +55,12 @@ async function getAllFiles(directoryPath) {
   for (const entry of dirEntries) {
     // console.log(entry);
     // if the entry is a file and is a png, save it to database
-    if (entry.isFile() && entry.name.includes(".png")) {
+    if (entry.isFile() && isFile(entry.name)) {
       /** create image to be save to DB, using:
        * 1) name of file w/o extenstion
        * 2) binary image data
        */
-      const nameOfFile = entry.name.replace(".png", "");
+      const nameOfFile = replaceFilename(entry.name);
       const image = {
         name: nameOfFile,
         image: fs.readFileSync(directoryPath + "/" + entry.name)
@@ -87,6 +87,18 @@ async function load() {
 
 async function databaseLoad() {
   return await getAllFiles(imageDirectory);
+}
+
+/**
+ * helpers
+ */
+
+function replaceFilename(filename) {
+  return filename.replace(/.png|.svg/, "");
+}
+
+function isFile(file) {
+  return file.includes(".png") || file.includes(".svg");
 }
 
 module.exports = {
