@@ -15,7 +15,7 @@ async function loadImages(directoryPath) {
     options: []
   };
   for (const entry of dirEntries) {
-    if (entry.isFile()) {
+    if (entry.isFile() && entry.name !== ".DS_Store") {
       // if config file, add config data to quizPage
       if (entry.name.includes("config.json")) {
         const configData = require(directoryPath + "/config.json");
@@ -29,7 +29,7 @@ async function loadImages(directoryPath) {
         quizPage.options.push({ name: nameOfFile });
       }
     }
-    if (entry.isDirectory()) {
+    if (entry.isDirectory() && entry.name !== ".DS_Store") {
       const returned = await loadImages(imageDirectory + "/" + entry.name);
 
       quizPage.options = quizPage.options.concat(returned);
@@ -53,7 +53,7 @@ async function getAllFiles(directoryPath) {
 
   for (const entry of dirEntries) {
     // if the entry is a file and is a png, save it to database
-    if (entry.isFile() && isFile(entry.name)) {
+    if (entry.isFile() && isFile(entry.name) && entry.name !== ".DS_Store") {
       /** create image to be save to DB, using:
        * 1) name of file w/o extenstion
        * 2) binary image data
@@ -70,7 +70,7 @@ async function getAllFiles(directoryPath) {
       files.push(image);
     }
     // if directory, recurse
-    if (entry.isDirectory()) {
+    if (entry.isDirectory() && entry.name !== ".DS_Store") {
       files = files.concat(await getAllFiles(directoryPath + "/" + entry.name));
     }
   }

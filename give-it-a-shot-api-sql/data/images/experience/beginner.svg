@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
@@ -12,7 +13,7 @@
    version="1.1"
    id="svg2032"
    inkscape:version="1.0.1 (c497b03c, 2020-09-10)"
-   sodipodi:docname="test-cup.svg">
+   sodipodi:docname="beginner.svg">
   <defs
      id="defs2026" />
   <sodipodi:namedview
@@ -23,17 +24,18 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.35"
-     inkscape:cx="400"
-     inkscape:cy="560"
+     inkscape:cx="681.42857"
+     inkscape:cy="891.42857"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
      showgrid="false"
      inkscape:window-width="1252"
-     inkscape:window-height="1035"
+     inkscape:window-height="1000"
      inkscape:window-x="0"
      inkscape:window-y="23"
-     inkscape:window-maximized="0" />
+     inkscape:window-maximized="0"
+     units="mm" />
   <metadata
      id="metadata2029">
     <rdf:RDF>
@@ -52,7 +54,7 @@
      id="layer1">
     <g
        id="g1256"
-       transform="matrix(0.26458333,0,0,0.26458333,37.63509,17.451162)">
+       transform="matrix(4.1099061,0,0,4.1099061,-448.07279,-911.9414)">
       <g
          id="water_glass_6_">
         <g

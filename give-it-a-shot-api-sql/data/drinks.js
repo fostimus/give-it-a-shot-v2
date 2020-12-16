@@ -28,6 +28,8 @@ const getQuizQuestions = async () => {
   if (quizPages.length === 0) {
     quizPages = await images.load();
 
+    console.log(quizPages);
+
     // populate images from database
     for (quizPage of quizPages) {
       await populateImages(quizPage);
