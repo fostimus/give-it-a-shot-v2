@@ -30,16 +30,16 @@ The front end is done completely with **React.js**. Some highlights:
 The hosted version of this web app can be found at: <https://giveitashotv2.herokuapp.com/>
 
 But if you'd like to play with the code yourself, please do the following:
-1. Ensure environment variables are set `API_KEY`
-2. Local database is created, and is set up with the models provided with this repository, and config is changed to point to your database.
-    1. `cd give-it-a-shot-image-sql`
-    2. `createdb give-it-a-shot`
-    3. Create a config.json
-    4. `sequelize db:migrate`
-3. Seed the database with Sequelize:
-    1. `cd give-it-a-shot-api-sql`
-    2. `sequelize db:seed --seed seeders/20201118201018-image-seeder.js`
-4. Dependencies are installed (npm i, both in frontend and backend directories)
+1\. Ensure environment variables are set `API_KEY`
+2\. Local database is created, and is set up with the models provided with this repository, and config is changed to point to your database.
+    1\. `cd give-it-a-shot-image-sql`
+    2\. `createdb give-it-a-shot`
+    3\. Create a config.json
+    4\. `sequelize db:migrate`
+3\. Seed the database with Sequelize:
+    1\. `cd give-it-a-shot-api-sql`
+    2\. `sequelize db:seed --seed seeders/20201118201018-image-seeder.js`
+4\. Dependencies are installed (npm i, both in frontend and backend direc tories)
 
 ## Project Planning
 
