@@ -4,7 +4,7 @@
   "description": "We know all know the feeling: standing in a room full of people, unsure if you belong or what to say. In our case, everyone is ordering fancy cocktails and all you know how to say is \"Vodka Soda\". Give It A Shot changes all of that.",
   "main": "index.js",
   "scripts": {
-    "test": "cd give-it-a-shot-client && npm test"
+    "test": "cd give-it-a-shot-client && npm install && npm test"
   },
   "repository": {
     "type": "git",
