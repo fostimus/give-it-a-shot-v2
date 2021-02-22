@@ -39,6 +39,7 @@ app.use(
     resave: false, // will not resave sessions
     saveUninitialized: false, // only create a session when a property is added to the session
     cookie: {
+      // ms per second * second per minute * minute per hour * hour per day === ms per day
       maxAge: 1000 * 60 * 60 * 24
     }
   })
