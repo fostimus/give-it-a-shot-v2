@@ -19,6 +19,8 @@ export const Account = props => {
     vw > mobileBreakpoint ? false : true
   );
 
+  console.log("dshsdhsudh");
+
   const user = useContext(AppContext);
 
   const fetchUser = userId => {
@@ -82,21 +84,14 @@ export const Account = props => {
   };
 
   const handleDelete = e => {
-    e.preventDefault();
     UserApi.destroy({
       firstName: firstName,
       lastName: lastName,
       email: email,
       id: user
     }).then(deletedUser => {
-      if (!user) return <Redirect to="/register" />;
-    });
-  };
-
-  const logout = () => {
-    localStorage.removeItem("id");
-    UserApi.logout().then(res => {
-      // setUser(null);
+      props.logout(e);
+      return <Redirect to="/register" />;
     });
   };
 
@@ -138,7 +133,7 @@ export const Account = props => {
         <Button
           type="submit"
           small={smallButton}
-          onClick={(handleDelete, logout)}
+          onClick={handleDelete}
           content="Delete Account"
         />
       </div>

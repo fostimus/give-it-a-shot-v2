@@ -58,3 +58,5 @@ At the moment, I use OmniFocus to track stories and completion. As the project g
 -   Refactor Modal - Bootstrap Modal is kinda janky
 -   Update Header for better nav set up... current grid + mobile center nav works, but is very brittle. Adding content will break it, should find a more sustainable of navigation
 -   Leverage users favorite alcohol from Account page in determining rest of app's recommendations (UX to add: information ON the liquor dropdown itself on the Account page)
+-   introduce Babel resolver to use aliases during development
+-   find a better way to resize in JS based on viewport width

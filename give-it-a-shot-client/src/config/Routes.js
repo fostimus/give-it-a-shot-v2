@@ -55,6 +55,7 @@ const Routes = props => (
       path="/account"
       component={Account}
       currentUser={props.currentUser}
+      logout={props.logout}
     />
     <PrivateRoute
       path="/quiz"

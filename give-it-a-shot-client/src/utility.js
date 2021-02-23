@@ -32,3 +32,14 @@ export function getViewport() {
   }
   return [viewPortWidth, viewPortHeight];
 }
+
+// regex password
+export function eightCharsOneLetterOneNumber(password) {
+  let regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+  return {
+    success: regex.test(password),
+    failure:
+      "Password must have at least 8 characters, at least 1 letter, and at least 1 number"
+  };
+}

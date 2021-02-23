@@ -13,7 +13,12 @@ export function Modal(props) {
 
   const buttons = props.buttons
     ? props.buttons.map(button => (
-        <ButtonLink variant="primary" text={button.text} path={button.path} />
+        <ButtonLink
+          variant="primary"
+          text={button.text}
+          path={button.path}
+          key={button.text}
+        />
       ))
     : null;
 
